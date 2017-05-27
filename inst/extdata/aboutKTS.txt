@@ -1,0 +1,20 @@
+
+KarsTS: An interface for karstic time series
+
+Date: May, 2017
+
+License: GPL (>=2)
+
+Author, Creator and Maintainer: Marina Sáez Andreu
+Thesis advisors: David Benavente García and Soledad Cuezva Robleño
+Contributor: Concepción Pla Bru 
+
+Citation: 
+Marina Sáez (2017). KarsTS: An interface for karstic time series. R package version 1.0.
+
+If you have any problem, email the maintainer (marinasaez_andreu@hotmail.com). 
+Suggestions for the next version are welcome too.  
+I hope KarsTS helps you with your research. KarsTS took a great effort so, please, do not forget to cite it. 
+
+
+

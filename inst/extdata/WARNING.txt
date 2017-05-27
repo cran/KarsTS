@@ -1,0 +1,26 @@
+
+This folder contains examples of KarsTS data sets in csv and txt formats.
+You can also use the function genTSExample, genGapExample, genRmExample in R.
+
+Depending on your computer settings (language, date, decimal point), the csv files may not work. 
+The txt files should work fine.
+DO NOT OPEN, REMOVE OR MODIFY THESE FILES (The mere act of opening them with Excel can modify them).
+COPY THEM TO ANOTHER FILE AND WORK WITH THE COPIES.
+
+TSEExamples.csv and TSEExamples.txt: two short artificially generated time series (TS1 and TS2)
+
+AllGapsTs1GSExample.csv and AllGapsTs1GSExample.txt: a gap set containing all missing values in TS1
+
+RMExample.csv and RMExample.txt: a recurrence matrix created from TS1 and stored according to KarsTS format.
+
+
+In addition, this folder includes some files are necessary in order that KarTS works fine.
+DO NOT OPEN, REMOVE OR MODIFIFY THESE FILES.
+
+wombeyan_caves_formations. gif : do not eliminate or modify this file.
+
+aboutKTS.txt: do not eliminate or modify this file.
+
+KarsTSHelp: do not eliminate or modify this file.
+
+

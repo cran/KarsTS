@@ -1,0 +1,192 @@
+
+KarsTS HELP
+
+For further information, check the User's Guide
+
+  *** KarsTS DATA SETS ***
+
+  There are three types of data sets in KarsTS:
+
+  * Time series
+  * Gap sets
+  * Recurrence matrices
+
+  The interface always shows univariate time series to choose. However, they can be stored as multivariate time series provided that their time columns are identical.
+
+  With KarsTS you can create and store gap sets and recurrence matrices, so it is not probable that you need to manipulate these data sets directly. However, it is useful to have some notions about what they are and what information they contain.   
+
+  The gap sets are collections of NAs. Each NA is represented by its position in the time series. Besides, the gap set contains additional information about the time series from which it comes: initial and final dates, sampling period,length and name. 
+  
+  The term "gap" refers to one or various consecutive NAs.
+  
+  You can select existing gaps in a time series. It is possible also to create NAs in a time series, fill them and compare the filled values to the real ones.
+
+  A recurrence matrix contains zeros and ones. They are interesting by themselves and they are also necessary to use the Twins filling method. To learn more about them, you can read the KarsTS Manual or Marwan(2007).
+
+  As recurrence matrix can be huge,in order to save space,KarsTS stores only the positions corresponding to ones. Each one-position is given by its column and its row. If you think about the recurrence matrix as a plot (recurrence plot) the column corresponds to the X axis position and the row correspond to the Y axis position.Therefore, the information about ones is stored in two columns named "XAxis" and "YAxis".
+
+ For simple and joint recurrence matrices, only the upper half of the matrix is stored because the are symmetric and the diagonal is, by definition, made up entirely by ones.For cross recurrence matrices, all the ones are stored because they are not symmetric and the diagonal can have zeros and ones. 
+
+ Besides, the recurrence matrix as a KarsTS gap set, contains additional information about the matrix (type: simple, cross or joint), about the parameters used to create the matrix(tolerance,time series,embedding dimension,delay and type of distance) and about the time series from which the recurrence matrix comes (length, sampling period and initial date).Currently, the only distance available is the infinite-norm.If you want other distances to be included, please, email me.
+
+
+
+
+  *** TIME SERIES MENU ***
+
+  Buttons to manipulate time series
+
+  The buttons Load, Remove,Save, Export, Rename and List work for time series, but also for the other two types of data sets (gap sets and recurrence matrices). 
+
+  * Save: It saves data sets to one or more .R files in your hard disk (specifically, in your working directory). 
+
+  * Remove: It erases data sets from the environment, never from your hard disk.  
+
+  * Export: You can save your data sets to .csv or .txt files. 
+
+  * Rename: You can give your data sets another name, maybe shorter or maybe more explicative. 
+
+  * Merge: When applied to time series, it produces a longer time series by joining together two or more shorter consecutive ones.It can be applied also to gap sets in a different sense. 
+
+  * List: It shows the list of the currently loaded data sets.
+
+  * Sampling Periods: It produces a list of the sampling periods and gaps present in a time series.  
+
+  * Aggregate: Given a time series, it creates a new time series of hourly, daily... values. You can choose any aggregation period or statistic.  
+
+  * Cut and resampling: It allows you to create a new time series by resampling and/or cutting a piece of another one.
+
+  * Operations: You can add, multiply, substract, invert and take natural logarythms of one or more time series.
+
+  * Round:It rounds the time series values to the chosen number of significant ciphers or decimal places.
+
+  * Scale: It performs a robust scaling, so that the resulting time series has zero mean and its median absolute deviation is one.
+
+  * Differences: It differences a time series at a chosen lag.
+
+  * Cumulative sum: It calculates the cumulative sum
+
+
+
+  *** GAP SETS MENU ***
+
+  Buttons to manipulate gap sets
+
+  The buttons Load, Remove,Save, Export, Rename and List work for gap sets, but also for the other two types of data sets (time series and recurrence matrices). 
+
+  * Save: It saves data sets to one or more .R files in your hard disk (specifically, in your working directory). 
+
+  * Remove: It erases data sets from the environment, never from your hard disk.  
+
+  * Export: You can save your data sets to .csv or .txt files. 
+
+  * Rename: You can give your data sets another name, maybe shorter or maybe more explicative. 
+
+  * Merge: When applied to gap sets, it produces a new gap set that is the union of the selected ones. 
+
+  * List: It shows the list of the currently loaded data sets.
+
+  * Selection: You can select a the gaps of a time series that meet certain criteria. For example, gaps that contain up to 12 NAs.  
+
+  * Artificial Random Gaps: It creates a gap set of artificial random gaps, which allows to compare the true values to the filling. This is useful to test whether a particular method is good for a specific time series .  
+
+  * Artificial Specific Gaps: Unlike the previous button, this one creates a gap at a specific position chosen by the user.
+
+  * ApplyGaps to Time Series:It applies a gap set to a time series, so that the new time series contains NAs at the positions specified by the gap set.
+  
+  * Little's MCAR test: It test if the gaps are missing completely at random.
+
+  
+  *** ANALYSIS MENU ***
+
+  Buttons to analyze time series
+
+  This menu focuses on functions that produce mainly non-graphical outputs. Note that within the Plots Menu there are also functions to analyze time series.
+
+  * Statistics: It produces a table with univariate statistics for each time series.It allows NAs.
+
+  * Rolling statistics: It calculates a statistic (for example,the mean) in sliding windows through the time series, thus producing a new time series.It allows NAs.
+
+  * Loess.decomp: It performs a loess seasonal decomposition of the selected time series.It allows NAs.It uses the function stlplus::stlplus by Hafen.R.
+
+  * Loess smoothing: It performs a loess smoothing. You can use predictor time series if you want to. It allows NAs. It uses the function stats::loess by RipleyB.D.
+  
+  * Normality: It performs various normality tests.It uses the functions stats::PP.test,stats::Box.test,tseries::adf.test and tseries::kpss.test all of them by Trapletti, A.
+
+  * Stationarity: It performs various stationarity tests.It uses the functions stats::PP.test,stats::Box.test,tseries::adf.test and tseries::kpss.test all of them by Trapletti, A.
+
+  * Linearity: It performs various linearity tests.It uses the functions nonlinearTseries::nonlinearityTest by Garcia, C.A. andnonlinearTseries::surrogateTest
+
+  * PCA: It performs a principal component analysis.It uses the function stats::prcomp
+
+  * Invariants: Given a time series, it returns its Correlation Sums and its Sample Entropy Matrices, along with graphical representations of them.It uses the function nonlinearTseries::corrDim by Garcia, C.A.
+
+  * Determinism: It calculates the recurrence rate, determinism and ratio of a recurrence matrix. It returns also a diagonal lines length summary and it plots its histogram.It allows NAs.
+
+  * Laminarity: It calculates the recurrence rate, laminarity and ratio of a recurrence matrix. It returns also a vertical lines length summary and it plots its histogram. It allows NAs.
+
+  * Recurrence Matrix, Cross Recurrence Matrix and Joint Recurrence Matrix create, respectively, a simple, cross or joint recurrence matrix. 
+
+  
+  *** PLOTS MENU ***
+
+  Buttons to create different kinds of plots
+
+  * Plot ts: Plot one or more time series.
+
+  * Remove points: It allows you to graphically select points in a time series (for example, outliers) and replace those values by NAs.
+
+  * Get coordinates: It allows you to graphically select points in a time series and get the position, time and value of each.
+
+  * Linear Correlation: It plots the acf and pacf of a time series or the ccf of two of them. It uses the functionsstats::acf,\link{stats::pacf andstats::ccf by Gilbert,P., Plummer, M. and Ripley,B.D.
+
+  * Mutual Information: It plots the average mutual information (AMI) of a time series (self-correlation) or two of them. It uses the function tseriesChaos::mutual by Fabio di Narzo,A.
+
+  * Phase portraits: It plots two or three dimemsional phase portraits.
+
+  * Histogram: It plots the histogram of the values of a time series. It uses the function graphics::hist.
+
+  * False Nearest Neighbors: It returns a plot of the Embedding dimension vs the Percent of False Nearest Neighbors. It uses the function tseriesChaos::false.nearest by Fabio di Narzo,A.
+
+  * Ed1 and Ed2: It plots the invariants E1 and E2 from Cao's Algorithm. It uses the function nonlinearTseries::estimateEmbeddingDim  by Garcia,C.A.
+
+  * Recurrence Plot
+
+  * Cross Recurrence Plot 
+
+  * Joint Recurrence Plot 
+
+  Some buttons in the Analysis Menu produce plots too.
+
+
+  *** FILLING MENU ***
+
+  Buttons to fill NAs in time series
+
+  The first row of buttons corresponds to univariate methods and the second to the multivariate ones.
+
+  * Stinemann's Interpolation: It is usually less sensitive to noise than the spline interpolation.It uses the function stinepack::na.stinterp by Grothendieck, G.
+
+  * Spline Interpolation: It uses the function zoo::na.spline.
+
+  * Linear Interpolation: It uses the function zoo::na.approx.
+
+  * ARIMA: It fits an ARIMA model and uses a Kalman Filter to fill the NAs. If your time series has no NAs, you can still get the model parameters.It uses the functionsforecast::auto.arima andforecast::Arima both by Hyndman, R.J.
+
+  * Mean Value: Only for periodic time series. It uses the information contained in the periods surrounding the gap to fill it.
+
+  * MissForest: Missing values imputation through a random forest algorithm.It uses the function missForest ::missForest  by Stekhoven, D.J.
+
+  * Multivariate splines: splines with predictor time series (generalized additive models)
+
+  * Twins: It fills NAs using twin points in the phase space.It can be used in an univariate or in a multivariate way.
+  
+  * ARIMAX: ARIMA model with regressor variables
+  
+  * Rm Slope Outliers: filters outliers that cause abnormally steep slopes
+
+  * Check filling: It performs a linear fit between actual values and filled artificial gaps. Nevertheless, it is recommendable to check the filling visually, using the button Plot ts in the Plots Menu.
+
+    
+             Marina Saez Andreu <marinasaez_andreu@hotmail.com>
+

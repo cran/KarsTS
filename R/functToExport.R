@@ -1,0 +1,4 @@
+functToExport <-
+function() {
+    #' @export KarsTS 
+}
