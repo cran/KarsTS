@@ -1,5 +1,7 @@
 KarsTS <-
 function(skipWelcome = FALSE) {
+  
+    # KTSEnv$activButton <- "hello"
     getScreenSize()
     assign("timeZone", "GMT", envir = KTSEnv)
     loadKarsTSFonts()
@@ -22,7 +24,7 @@ function(skipWelcome = FALSE) {
     }
     
     assignMultiple(c("heigth4", "width4.1", "width4.2", "titleWidth"), 
-                   list(550,300, 50, 30), 
+                   list(550,350, 85, 30), 
                    envir = KTSEnv)
     mainScreen()
 }

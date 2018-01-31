@@ -1,4 +1,5 @@
-genRmExample <- function(name = "SRM", InKTSEnv = TRUE, plotRM = FALSE){
+genRmExample <-
+function(name = "SRM", InKTSEnv = TRUE, plotRM = FALSE){
   
   # generate time series
   TS <- genTSExample(stationary = FALSE, InKTSEnv = FALSE)[1:1000,]

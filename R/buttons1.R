@@ -1,13 +1,23 @@
 buttons1 <-
 function() {
-  if (KTSEnv$activMenu != "tsermenu") {
+  # if (KTSEnv$activMenu != "tsermenu") {
     subMenu1But <- function(parent = NULL, text = "Load", 
                             command = loadAllTypes) {
-      buttonSM1 <- tcltk::tkbutton(parent = parent,text = text, width = 5, 
-                                   command = command, 
-                                   background = "palevioletred3", 
-                                   foreground = "white", 
-                                   font = KTSEnv$KTSFonts$subBt)
+      
+      # if(text == KTSEnv$activButton){
+      #   buttonSM1 <- tcltk::tkbutton(parent = parent,text = text, width = 5, 
+      #                                command = command, 
+      #                                background = "palevioletred3", 
+      #                                foreground = "white", 
+      #                                font = KTSEnv$KTSFonts$subBt1)
+      # }else{
+        buttonSM1 <- tcltk::tkbutton(parent = parent,text = text, width = 5, 
+                                     command = command, 
+                                     background = "palevioletred3", 
+                                     foreground = "white", 
+                                     font = KTSEnv$KTSFonts$subBt)
+      # }
+
       tcltk::tkpack(buttonSM1, side = "left", expand = TRUE, fill = "both")
     }
     try(tcltk::tkdestroy(KTSEnv$row231), silent = TRUE)
@@ -39,5 +49,5 @@ function() {
     assign("row232", row232, envir = KTSEnv)
     assign("activMenu", "tsermenu", envir = KTSEnv)
     loadAllTypes()
-  }
+  # }
 }

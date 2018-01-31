@@ -55,10 +55,11 @@ function() {
             }
             plotTsAndRedden <- function() {
                 graphics::plot(selTs, xlab = "", ylab = "", 
-                               cex = 0.5, main = selTsName)
+                               cex = 0.5, main = selTsName,
+                               pch = "+")
                 if (length(KTSEnv$indicesToRedden > 0)) {
                   graphics::points(selTs[KTSEnv$indicesToRedden, ], 
-                                   col = "red", cex = 0.5)
+                                   col = "red", cex = 0.5, pch = "+")
                 }
                 parPlotSize <- graphics::par("plt")
                 assign("parPlotSize", parPlotSize, envir = KTSEnv)
@@ -66,7 +67,7 @@ function() {
                 assign("uC", uC, envir = KTSEnv)
             }
             onLeftClick <- function(x, y) {
-                tkrplot::tkrreplot(rmPointsPlot)
+
                 xC <- x
                 yC <- y
                 
@@ -104,6 +105,7 @@ function() {
                   envir = KTSEnv)
                 tkrplot::tkrreplot(rmPointsPlot)
             }
+            
             selTs <- get(selTsName, envir = KTSEnv)
             xCr <- as.numeric(selTs$time)
             yCr <- selTs$value
@@ -121,6 +123,7 @@ function() {
             rmPointsPlot <- tkrplot::tkrplot(rmPWinFrame, 
                                              fun = plotTsAndRedden, 
                                              hscale = 3, vscale = 1.5)
+            tcltk::tkconfigure(rmPointsPlot, bg = "white")
             botonrp <- tcltk::tkbutton(rmPWinFrame, text = "Remove points", 
                                        command = turnPointsToNAs)
             botonns <- tcltk::tkbutton(rmPWinFrame, text = "New selection", 
@@ -150,10 +153,7 @@ function() {
     }
     cleanEnvir()
     refreshDataSetsList(outp = FALSE)
-    tcltk::tkmessageBox(message = paste("Be careful, because the",
-                                        "original time series will",
-                                        "we overwritten by default"), 
-        icon = "warning")
+
     checkIfAnyTs(action = "showPANrmPoints", 
                  envirName = environment(showPANrmPoints))
 }

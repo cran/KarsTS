@@ -3,6 +3,14 @@ function() {
   histOnOk <- function() {
     selTsName <- verifyCharEntry(tcltk::tclvalue(KTSEnv$selTsP), noValid = NA)
     nBars <- verifyIntEntry(tcltk::tclvalue(KTSEnv$numberBars), noValid = NA)
+    KTSEnv$xScls <- verifyRealEntry(tcltk::tclvalue(KTSEnv$xScl),
+                                    noValid = NA)
+    
+    KTSEnv$yScls <- verifyRealEntry(tcltk::tclvalue(KTSEnv$yScl),
+                                    noValid = NA)
+    if(is.na(KTSEnv$xScls)){KTSEnv$xScls <- 1}
+    if(is.na(KTSEnv$yScls)){KTSEnv$yScls <- 1}
+    
     if (is.na(selTsName)) {
       tcltk::tkmessageBox(message = "Choose a time series", icon = "warning")
     } else {
@@ -33,7 +41,9 @@ function() {
       panelName <- createRandName()
       assign(panelName, tcltk::tktoplevel(bg = "white"))
       tcltk::tkwm.title(get(panelName), "Histogram")
-      tsPlot <- tkrplot::tkrplot(get(panelName), fun = plotHist)
+      tsPlot <- tkrplot::tkrplot(get(panelName), fun = plotHist,
+                                 hscale = KTSEnv$xScls, 
+                                 vscale = KTSEnv$yScls)
       copyButton <- tcltk::tkbutton(get(panelName), 
                                     text = "Copy to clipboard", 
                                     command = copyPlot)
@@ -50,6 +60,9 @@ function() {
     createTsRb()
     createEntry(labTitle = "Approx. number of bars", 
                 textVariableName = "numberBars")
+    createEntry(labTitle = "X Scale",textVariableName = "xScl")
+    
+    createEntry(labTitle = "Y Scale",textVariableName = "yScl")
     createOK(labTitle = "RUN", action = histOnOk)
     tcltk::tkpack(KTSEnv$subPanR4C1, expand = TRUE, fill = "both")
     

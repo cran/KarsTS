@@ -32,7 +32,7 @@ function() {
                 "H0: The detrended time series is not stationary", 
                 paste0("H1:", resultadf[[3]]), 
                 paste("Lag order", resultadf[[2]]), "\n")
-      txt5 <- c(resultkpss[[4]], paste("P-value", resultkpss[[3]]), 
+      txt5 <- c(resultkpss[[4]], paste("P-value", round(resultkpss[[3]],2)), 
                 "H0: The time series is white noise", 
                 paste("Truncation lag parameter", resultkpss[[2]]))
       txt <- c(txt2, txt3, txt4, txt5)

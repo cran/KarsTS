@@ -16,5 +16,5 @@ If you have any problem, email the maintainer (marinasaez_andreu@hotmail.com).
 Suggestions for the next version are welcome too.  
 I hope KarsTS helps you with your research. KarsTS took a great effort so, please, do not forget to cite it. 
 
-
-
+Welcome screen image by freeaussiestock.com; distributed  under a Creative Commons Attribution 3.0 Unported License. 
+http://freeaussiestock.com/free/New_South_Wales/slides/wombeyan_caves_formations.htm

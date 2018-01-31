@@ -71,8 +71,12 @@ function() {
         tcltk::tkpack(KTSEnv$subPanR4C1, expand = TRUE, fill = "both")
         
     }
+    
+    # KTSEnv$activButton <- "Round"
+    # buttons1()
     cleanEnvir()
     refreshDataSetsList(outp = FALSE)
     checkIfAnyTs(action = "showPANround", 
                  envirName = environment(showPANround))
+    
 }

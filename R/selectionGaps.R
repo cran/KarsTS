@@ -138,7 +138,8 @@ function() {
               allSizeGaps <- union(allSizeGaps, 
                                    gapsIndeces[i, 1]:gapsIndeces[i, 2])
             }
-            txt1 <- paste("greater than", selMiniSize, "and smaller than", 
+            txt1 <- paste("greater than or equal to", selMiniSize,
+                          "and smaller than or equal to", 
                           selMaxiSize)
           } else if (criterionMax == "1") {
             aa <- which(lengthGaps <= selMaxiSize)
@@ -148,7 +149,7 @@ function() {
               allSizeGaps <- union(allSizeGaps, 
                                    gapsIndeces[i, 1]:gapsIndeces[i,2])
             }
-            txt1 <- paste("smaller than", selMaxiSize)
+            txt1 <- paste("smaller than or equal to", selMaxiSize)
           } else if (criterionMin == "1") {
             aa <- which(lengthGaps >= selMiniSize)
             names(aa) <- NULL
@@ -157,7 +158,7 @@ function() {
               allSizeGaps <- union(allSizeGaps, 
                                    gapsIndeces[i, 1]:gapsIndeces[i,2])
             }
-            txt1 <- paste("greater than", selMiniSize)
+            txt1 <- paste("greater than or equal to", selMiniSize)
           }
           if (length(allSizeGaps) > 0) {
             allSizeGaps <- sort(allSizeGaps)

@@ -1,54 +1,69 @@
 determinismKTS <-
 function() {
+  
   showPANdeterm <- function() {
     refreshDataSetsList(outp = FALSE)
     createSubPanR4C1()
     createTITLE(labTitle = "DETERMINISM")
     createRmRb()
     createEntry(labTitle = "Lines minimum length", 
-                textVariableName = "minLength")
+                textVariableName = "minLength",defaultVal = "2")
+    createTitle(labTitle = "Rhomboidal shape")
+    rhombShape <- tcltk::tclVar("Yes")
+    assign("rhombShape", rhombShape, envir = KTSEnv)
+    createRb(variable = KTSEnv$rhombShape, dataVector = c("Yes","No"))
     createOK(labTitle = "RUN", action = determOnOk)
     tcltk::tkpack(KTSEnv$subPanR4C1, expand = TRUE, fill = "both")
     
   }
+  
   determOnOk <- function() {
+    
     selRmName <- verifyCharEntry(tcltk::tclvalue(KTSEnv$selRmP), 
                                  noValid = NA)
     selMinLength <- verifyIntEntry(tcltk::tclvalue(KTSEnv$minLength), 
                                    noValid = NA)
+    
+    rhomb <- tcltk::tclvalue(KTSEnv$rhombShape)
+    
     if (is.na(selRmName)) {
+      
       tcltk::tkmessageBox(message = paste("Choose a recurrence matrix"), 
                           icon = "warning")
+      
     } else if (is.na(selMinLength) | selMinLength < 2) {
+      
       tcltk::tkmessageBox(message = paste("Enter a valid minimum length",
                                           "(an integer greater than 1)"), 
                           icon = "warning")
-    } else {
+      
+    }else{
+      
       selRm <- get(selRmName, envir = KTSEnv)
+      
       if (selRm$type == "cross") {
+        
         tcltk::tkmessageBox(message = paste("The recurrence matrix must",
                                             "be simple or joint"), 
                             icon = "warning")
+        
       } else {
+        
         if (any(selRm$tsIni != selRm$tsIni[1])) {
+          
           tcltk::tkmessageBox(message = paste("The joint recurrence",
                                               "matrix comes from",
                                               "lagged time series.",
                                               "Take it into",
                                               "consideration"))
+          
         }
+        
         tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "watch")
-        X <- selRm$ones$X
-        Y <- selRm$ones$Y
-        dXY <- Y - X
-        embShortening <- (selRm$embDim - 1) * selRm$delay
-        dimRecMat <- min(selRm$tsLength - embShortening)
-        N2 <- dimRecMat^2
-        nrowRecMat <- length(X)
-        onesNumber <- 2 * nrowRecMat + dimRecMat
-        sampPer <- selRm$samPerSec[1]
-        RR <- onesNumber/N2
-        getLinesInOneDiag <- function(diagDist.i, dXY) {
+        
+        getLinesInOneDiag <- function(diagDist.i, dXY,Y,
+                                      selMinLength) {
+          
           lengthLines.i <- NULL
           rowsBelongDiag <- which(dXY == diagDist.i)
           diag.i <- Y[rowsBelongDiag]
@@ -61,13 +76,18 @@ function() {
           }
           lengthLines.i
         }
-        getOutputs <- function(diagLines) {
+        
+        getOutputs <- function(diagLines,onesNumber,RR,sampPer) {
+          
           if (length(diagLines) == 0) {
+            
             DET <- 0
             summLengths <- summary(0)
             summLengthsSec <- summary(0)
             ratioRqa <- DET/RR
+            
           } else {
+            
             uniqueLengths <- as.matrix(sort(unique(diagLines)))
             freqFun <- function(ll) {res <- length(which(diagLines == ll))}
             freqLengths <- apply(uniqueLengths, 1, freqFun)
@@ -76,12 +96,18 @@ function() {
             summLengths <- summary(diagLines)
             summLengthsSec <- sampPer * summLengths
             ratioRqa <- DET/RR
+            
           }
+          
           list(DET = DET, ratioRqa = ratioRqa, summLengths = summLengths, 
                summLengthsSec = summLengthsSec)
+          
         }
+        
         getHist <- function(diagLines, selRmName, selMinLength) {
+          
           plothist <- function() {
+            
             histResult <- graphics::hist(diagLines, 
                                          breaks = seq(min(diagLines) - 0.5, 
                                                       max(diagLines) + 0.5, 
@@ -113,10 +139,12 @@ function() {
           tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "left_ptr")
           
         }
+        
         writeDetResult <- function(DET, ratioRqa, RR, selRmName, selMinLength, 
-                                   summLengths, summLengthsSec, selRm) {
+                                   summLengths, summLengthsSec, selRm, rhomb) {
           txt <- c("DETERMINISM", date(), 
                    paste(" Recurrence matrix:", selRmName), 
+                   paste(" Rhomboidal shape:", rhomb),
                    paste(" Minimum length of the diagonal lines:", 
                          selMinLength), 
                    paste(" Recurrence rate:", round(RR, 4)), 
@@ -167,24 +195,91 @@ function() {
           endingLines()
         }
         
+        squareToRhomb <-function(RM){
+          
+          embShortening <- (RM$embDim - 1) * RM$delay
+          N <- min(RM$tsLength - embShortening)
+          M <- ceiling(0.5*N)
+          N2 <- M^2+(M-1)^2
+          YmX <- RM$ones$Y - RM$ones$X
+          YMX <- RM$ones$Y + RM$ones$X
+          aa <- which(YmX <= M)
+          bb <- which(YMX >= (M + 1))
+          cc <- which(YMX <= (M + N))
+          pointsToKeep <- intersect(aa,intersect(bb,cc))
+          RM$ones <- RM$ones[pointsToKeep,]
+          rownames(RM$ones) <- NULL
+          list(RM = RM,M = M,N = N, N2=N2)
+          
+        }
+        
+
+        if(rhomb == "Yes"){
+          
+          res <- squareToRhomb(selRm)
+          selRm <- res$RM
+          M <- res$M
+          N <- res$N
+          N2 <- res$N2
+          X <- selRm$ones$X
+          Y <- selRm$ones$Y
+          dXY <- Y - X
+          nrowRecMat <- length(X)
+          onesNumber <- 2*nrowRecMat + M
+
+        }else{
+         
+          embShortening <- (selRm$embDim - 1) * selRm$delay
+          N <- min(selRm$tsLength - embShortening)
+          N2 <- N^2
+          X <- selRm$ones$X
+          Y <- selRm$ones$Y
+          dXY <- Y - X
+          nrowRecMat <- length(X)
+          onesNumber <- 2*nrowRecMat + N
+
+        }
+
+        sampPer <- selRm$samPerSec[1]
+        RR <- onesNumber/N2
         diagLines <- apply(as.matrix(sort(unique(dXY))), 1, 
-                           FUN = getLinesInOneDiag, dXY = dXY)
+                           FUN = getLinesInOneDiag, dXY = dXY, Y = Y,
+                           selMinLength = selMinLength)
         
         diagLines <- unlist(diagLines)
         names(diagLines) <- NULL
-        results <- getOutputs(diagLines)
-        getHist(diagLines, selRmName, selMinLength)
+        results <- getOutputs(diagLines,onesNumber,RR,sampPer)
+        
         writeDetResult(results$DET, results$ratioRqa, RR, 
                        selRmName, selMinLength, 
-                       results$summLengths, results$summLengthsSec, selRm)
+                       results$summLengths, results$summLengthsSec,
+                       selRm,rhomb)
+        
+        if(is.null(diagLines)){
+          
+          tcltk::tkmessageBox(message = paste("No lines were found"),
+                              icon = "warning")
+          
+          
+        }else{
+          
+          getHist(diagLines, selRmName, selMinLength)
+
+        }
+        
         cleanEnvir()
         tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "left_ptr")
         showPANdeterm()
+        
       }
+      
     }
+    
   }
+  
   cleanEnvir()
   refreshDataSetsList(outp = FALSE)
   checkIfAnyRm(action = "showPANdeterm", 
                envirName = environment(showPANdeterm))
+  
 }

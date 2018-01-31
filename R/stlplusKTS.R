@@ -43,6 +43,7 @@ function() {
     
   }
   stlKTS2OnOk <- function() {
+    
     verifyWinName <- function(X, noValid = NA) {
       result <- list(win = noValid, name = noValid)
       if (X == "") {
@@ -82,6 +83,7 @@ function() {
       }
       selTs
     }
+    
     addOrMult <- tcltk::tclvalue(KTSEnv$type)
     seasonality1 <- verifyIntEntry(tcltk::tclvalue(KTSEnv$seasonality), 
                                    noValid = NA)
@@ -119,24 +121,34 @@ function() {
     validNamesInd <- setdiff(1:7, 
                              which(is.na(allNames) | allNames == "noValid"))
     validWinNamesInd <- intersect(validWinsInd, validNamesInd)
+    
     if (is.na(seasonality1)) {
+      
       tcltk::tkmessageBox(message = paste("Enter the seasonality (in lags)"),
                           icon = "warning")
+      
     } else if (seasonality1 < 4) {
+      
       tcltk::tkmessageBox(message = paste("Each period must have at least",
                                           "four measurements,that is,",
                                           "the seasonality has to be",
                                           "four or greater"), 
                           icon = "warning")
+      
     } else if (is.na(seaWindow)) {
+      
       tcltk::tkmessageBox(message = paste("Enter the seasonal",
                                           "window (in lags)"), 
                           icon = "warning")
+      
     } else if (is.na(trendWindow)) {
+      
       tcltk::tkmessageBox(message = paste("Enter the trend",
                                           "window (in lags)"), 
                           icon = "warning")
+      
     } else if (any(allWinNames == "noValid")) {
+      
       tcltk::tkmessageBox(message = paste("Some optional smoothing",
                                           "parameters have not an",
                                           "appropiate format. You",
@@ -145,7 +157,9 @@ function() {
                                           "any spaces or leave the",
                                           "entry completely empty"), 
                           icon = "warning")
+      
     } else if (all(is.na(allWinNames))) {
+      
       tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "watch")
       selTs <- get(KTSEnv$selTsName, envir = KTSEnv)
       selTs <- transfIfMult(selTs, addOrMult)
@@ -158,6 +172,9 @@ function() {
       if (addOrMult == "Multiplicative") {
         loessResult$data[, 2:4] <- exp(loessResult$data[, 2:4])
       }
+      
+      loessResult$data[which(is.na(selTs$value)),2:4] <- NA
+      
       assign(paste0(KTSEnv$selTsName, "Sea"), 
              data.frame(time = selTs$time, value = loessResult$data$seasonal),
              envir = KTSEnv)
@@ -189,6 +206,11 @@ function() {
         loessResult$data[, 2] <- exp(loessResult$data[, 2])
         loessResult$fc <- exp(loessResult$fc)
       }
+      
+      jj <- which(is.na(selTs$value))
+      loessResult$data$seasonal[jj] <- NA
+      loessResult$fc$remainder[jj] <- NA
+      
       assign(paste0(KTSEnv$selTsName, "Sea"), 
              data.frame(time = selTs$time, value = loessResult$data$seasonal), 
              envir = KTSEnv)
@@ -196,15 +218,21 @@ function() {
              data.frame(time = selTs$time, value = loessResult$fc$remainder), 
              envir = KTSEnv)
       for (j in 1:(ncol(loessResult$fc) - 1)) {
+        
+        loessResult$fc[jj,j] <- NA
         assign(paste0(KTSEnv$selTsName, FClab[j]), 
                data.frame(time = selTs$time, value = loessResult$fc[, j]), 
                envir = KTSEnv)
+        
       }
+      
       cleanEnvir()
       refreshDataSetsList(outp = FALSE)
       tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "left_ptr")
       showPANstlKTS1()
+      
     }
+    
   }
   tcltk::tkmessageBox(message = paste("If your time series is huge,",
                                       "the process may take a some minutes.",

@@ -1,7 +1,7 @@
 gapForSelMethod <-
 function(selTsName, selTs, envir = KTSEnv) {
   if (exists("selGapP", envir = KTSEnv) == FALSE) {
-    selGapName <- paste0(selTsName, "All")
+    selGapName <- "All"
     selGap <- list(gaps = which(is.na(selTs$value)), 
                    tsIni = as.character(selTs$time[1]), 
                    tsEnd = selTs$time[nrow(selTs)], 
@@ -11,7 +11,7 @@ function(selTsName, selTs, envir = KTSEnv) {
     selGapName <- verifyCharEntry(tcltk::tclvalue(KTSEnv$selGapP), 
                                   noValid = NA)
     if (is.na(selGapName)) {
-      selGapName <- paste0(selTsName, "All")
+      selGapName <- "All"
       selGap <- list(gaps = which(is.na(selTs$value)), 
                      tsIni = as.character(selTs$time[1]), 
                      tsEnd = selTs$time[nrow(selTs)], 

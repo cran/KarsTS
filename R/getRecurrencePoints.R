@@ -28,7 +28,7 @@ function(timSer,embedDim, lagDelay, threshold){
     infNorm <- function(v1, v2) {
       lv2 <- NROW(v2)
       apply(abs(v2 - matrix(rep(v1, each = lv2), lv2, embedDim)), 
-            1,FUN = max, na.rm = TRUE)
+            1,FUN = max, na.rm = FALSE)
     }
   }
   indices <- as.matrix(1:(nrow(dataTS) - 1))

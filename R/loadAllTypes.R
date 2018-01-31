@@ -9,17 +9,11 @@ function() {
         exten
     }
     getAlreadyLoaded <- function(DStoLoad) {
+      
         loadedDS <- c(KTSEnv$dSList$TS, KTSEnv$dSList$gaps, KTSEnv$dSList$rm)
-        if (is.null(loadedDS)) {
-            alreadyLoaded <- NULL
-        } else {
-            alreadyLoaded <- rep(FALSE, length(loadedDS))
-            for (i in 1:length(loadedDS)) {
-                alreadyLoaded[i] <- any(DStoLoad == loadedDS[i])
-            }
-            alreadyLoaded <- loadedDS[which(alreadyLoaded == TRUE)]
-        }
+        alreadyLoaded <- intersect(loadedDS, DStoLoad)
         alreadyLoaded
+        
     }
     importDS <- function() {
       importOnOk <- function() {
@@ -555,7 +549,7 @@ function() {
                   icon = "warning")
             } else {
                 tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "watch")
-                DSNames <- load(selFile, envir = KTSEnv)
+                DSNames <- load(selFile)
                 alreadyLoaded <- getAlreadyLoaded(DSNames)
                 isTSAlright <- function(DStoLoad, DSNames, jj) {
                   result <- FALSE
@@ -634,7 +628,7 @@ function() {
                                                         "not be loaded"), 
                       icon = "warning")
                   } else {
-                    DStoLoad <- get(DSNames[jj], envir = KTSEnv)
+                    DStoLoad <- get(DSNames[jj])
                     if (class(DStoLoad) == "data.frame") {
                       TSAlright <- isTSAlright(DStoLoad, DSNames, jj)
                       if (TSAlright == TRUE) {

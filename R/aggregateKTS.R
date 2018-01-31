@@ -111,6 +111,11 @@ function() {
       if (length(newTime) != length(newData)) {
         newData <- newData[1:length(newTime)]
       }
+      aa <- which(is.infinite(newData))
+      newData[aa] <- NA
+      bb <- which(is.nan(newData))
+      newData[bb] <- NA
+      
       assign(selNewName, data.frame(time = newTime, value = newData), 
              envir = KTSEnv)
     }

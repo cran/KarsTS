@@ -3,7 +3,8 @@ function() {
     #' @importFrom circular circular windrose
     #' @importFrom BaylorEdPsych LittleMCAR
     #' @importFrom MVN uniNorm hzTest mardiaTest
-    #' @importFrom graphics abline axis curve hist legend lines par plot points
+    #' @importFrom graphics abline axis curve hist 
+    #' @importFrom graphics legend lines par plot points axTicks title
     #' @importFrom utils capture.output globalVariables read.table write.table
     #' @importFrom tcltk tklabel tkmessageBox tkwait.window tktext ttklabel
     #' @importFrom tcltk ttkframe tkscrollbar tkpack tkgrid tkgrid.configure
@@ -24,13 +25,15 @@ function() {
     #' @importFrom nonlinearTseries nonlinearityTest radius  sampleEntropy 
     #' @importFrom nonlinearTseries surrogateTest timeAsymmetry2
     #' @importFrom stats acf aggregate Box.test ccf coefficients complete.cases
-    #' @importFrom stats dnorm IQR KalmanSmooth lm lm.influence 
-    #' @importFrom stats loess mad median pacf
+    #' @importFrom stats dnorm IQR KalmanSmooth lm lm.influence time
+    #' @importFrom stats loess mad median pacf na.omit
     #' @importFrom stats PP.test prcomp predict quantile rnorm sd smooth.spline
     #' @importFrom stats loess.control na.exclude na.pass pf ts confint cor
     #' @importFrom zoo na.approx na.spline rollapply
     #' @importFrom grDevices dev.new
     #' @importFrom rgl plot3d
-    #' @importFrom mgcv te gam 
+    #' @importFrom mgcv te gam
+    #' @importFrom infotheo discretize mutinformation
+    #' @importFrom plot3D image2D 
     
 }

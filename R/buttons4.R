@@ -22,7 +22,7 @@ function() {
                 command = getCoordsKTS)
     subMenu4But(parent = row231, text = "Linear correlation", 
                 command = linCorrKTS)
-    subMenu4But(parent = row231, text = "Mutual information", 
+    subMenu4But(parent = row231, text = "AMI", 
                 command = mutualKTS)
     subMenu4But(parent = row231, text = "Wind Rose", 
                 command = windRoseKTS)
@@ -32,15 +32,17 @@ function() {
     subMenu4But(parent = row232, text = "Histogram", command = histKTS)
     subMenu4But(parent = row232, text = "Phase portraits", 
                 command = scattTimeSeries)
-    subMenu4But(parent = row232, text = "False nearest neighbors", 
+    subMenu4But(parent = row232, text = "FNN", 
                 command = fnnKTS)
     subMenu4But(parent = row232, text = "Ed(1)&Ed(2)", command = E1dAndE2d)
     subMenu4But(parent = row232, text = "Recurrence plot", 
                 command = createSimpleRMPlot)
-    subMenu4But(parent = row232, text = "Cross recurrence plot", 
+    subMenu4But(parent = row232, text = "Cross rec. plot", 
                 command = createCrossRMPlot)
-    subMenu4But(parent = row232, text = "Joint recurrence plot", 
-                command = createJointRMPlot)
+    subMenu4But(parent = row232, text = "Distance plot", 
+                command = createDistMatrix)
+    subMenu4But(parent = row232, text = "RP", 
+                command = RPKTS)
     tcltk::tkpack(row232, anchor = "nw", fill = "both")
     assign("row231", row231, envir = KTSEnv)
     assign("row232", row232, envir = KTSEnv)

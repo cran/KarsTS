@@ -8,7 +8,7 @@ createChbEntry: creates a check box with associated text entries
 This function creates an element in the input panel consisting of two columns: a check box and the corresponding text entries. It is used internally
 }
 \usage{
-createChbEntry(ind, elements, prefix = "scbValue", envir = KTSEnv)
+createChbEntry(ind, elements, prefix = "scbValue", envir = KTSEnv, dCh = "0", dEn = "")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +23,12 @@ A prefix to assign names to the output variables
 }
   \item{envir}{
 Environment (defaults to the environment KTSEnv)
+}
+  \item{dCh}{
+Default value for the checkbox
+}
+  \item{dEn}{
+Default value for the text entry
 }
 }
 

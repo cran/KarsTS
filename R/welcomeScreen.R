@@ -6,7 +6,7 @@ function() {
   row1.0 <- tcltk::tkframe(KTSEnv$mainPanel.0, bg = "blue")
   row2.0 <- tcltk::tkframe(KTSEnv$mainPanel.0, bg = "white", 
                            borderwidth = 2, relief = "raised", 
-                           height = 50, width = 50)
+                           height = 10, width = 10)
   
   pathToImage <- paste0(system.file(package = "KarsTS"), "/extdata")
   prev <- getwd()
@@ -24,7 +24,7 @@ function() {
   fontTITULO <- tcltk::tkfont.create(family = "Arial", 
                                      size = 24, weight = "bold")
   welcomeTxt1 <- tcltk::tklabel(row2.0, text = "KarsTS", 
-                                width = 150, height = 5, 
+                                width = 37, height = 5, 
                                 font = fontTITULO, background = "white", 
                                 foreground = "darkblue")
   welcomeTxt2 <- tcltk::tklabel(row2.0, 
@@ -35,7 +35,7 @@ function() {
                                 height = 5, 
                                 font = KTSEnv$KTSFonts$subBt, 
                                 background = "white", foreground = "darkblue")
-  startButton <- tcltk::tkbutton(row2.0, text = "START", width = 50, 
+  startButton <- tcltk::tkbutton(row2.0, text = "START", width = 10, 
                                  command = destroyWelcome, 
                                  background = "azure2", 
                                  foreground = "chocolate4", 
@@ -43,13 +43,13 @@ function() {
   
   
   tcltk::tkpack(welcomeTxt1, expand = TRUE, fill = "both", 
-                pady = c(15, 15), padx = c(15,15))
+                pady = c(10, 10), padx = c(5,5))
   tcltk::tkpack(welcomeTxt2, expand = FALSE, fill = "both", 
-                pady = c(15, 15), padx = c(15,15))
+                pady = c(10, 10), padx = c(5,5))
   tcltk::tkpack(welcomeTxt3, expand = FALSE, fill = "both", 
-                pady = c(15, 15), padx = c(15,15))
+                pady = c(10, 10), padx = c(5,5))
   tcltk::tkpack(startButton, expand = FALSE, fill = "both", 
-                pady = c(15, 15), padx = c(15,15))
+                pady = c(10, 10), padx = c(5,5))
   
   
   tcltk::tkpack(row1.0, expand = FALSE, fill = "both", side = "left")
@@ -57,4 +57,5 @@ function() {
   
   tcltk::tkfocus(KTSEnv$mainPanel.0)
   tcltk::tkraise(KTSEnv$mainPanel.0)
+  
 }

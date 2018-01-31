@@ -111,13 +111,7 @@ function() {
         }
       }
     }
-    tcltk::tkmessageBox(message = paste("The process can take several minutes",
-                                        "if your series is huge.It can even",
-                                        "collapse:save everything you need",
-                                        "to save before using this function.",
-                                        "Save your recurrence matrix",
-                                        "to the hard disk"), 
-                        icon = "warning")
+
     cleanEnvir()
     refreshDataSetsList(outp = FALSE)
     checkIfAnyTs(action = "showPANsrm1", 

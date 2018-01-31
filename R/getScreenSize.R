@@ -1,4 +1,5 @@
-getScreenSize <- function() {
+getScreenSize <-
+function() {
   
   opeSys <- Sys.info()[[1]]
   

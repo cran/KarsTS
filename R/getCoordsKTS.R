@@ -9,8 +9,7 @@ function() {
     } else {
       plotAndGreen <- function() {
         graphics::plot(xCr, yCr, main = "", xlab = "", 
-                       xaxt = "n", 
-                       ylab = selTsName)
+                       xaxt = "n",ylab = selTsName, pch = "+")
         ticksAt <- graphics::par("xaxp")
         myTicksAt <- seq(ticksAt[1], ticksAt[2], length.out = ticksAt[3] + 1)
         getMyTicksIndices <- function(x) {
@@ -25,7 +24,7 @@ function() {
           for (i in (1:length(KTSEnv$grP))) {
             indexClosest <- KTSEnv$grP[i]
             graphics::points(xCr[indexClosest], yCr[indexClosest], 
-                             col = "limegreen")
+                             col = "green", pch = "+")
           }
         }
         parPlotSize <- graphics::par("plt")
@@ -94,7 +93,7 @@ function() {
       xCr <- as.numeric(selTs$time)
       yCr <- selTs$value
       assign("grP", c(), envir = KTSEnv)
-      limegreendedPoints <- list()
+      # limegreendedPoints <- list()
       gCooWin <- tcltk::tktoplevel(bg = "white")
       tcltk::tkwm.title(gCooWin, selTsName)
       gCooWinFrame <- tcltk::tkframe(gCooWin, borderwidth = 2, 
@@ -106,6 +105,7 @@ function() {
       tcltk::tkgrid.rowconfigure(gCooWinFrame, 1, weight = 0)
       getCoorPlot <- tkrplot::tkrplot(gCooWinFrame, fun = plotAndGreen, 
                                       hscale = 3, vscale = 1.5)
+      tcltk::tkconfigure(getCoorPlot, bg = "white")
       botonrp <- tcltk::tkbutton(gCooWinFrame, text = "Write results", 
                                  command = writeCoor)
       botonns <- tcltk::tkbutton(gCooWinFrame, text = "New selection", 
