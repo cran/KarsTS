@@ -2,7 +2,7 @@ packagesToImport <-
 function() {
     #' @importFrom circular circular windrose
     #' @importFrom BaylorEdPsych LittleMCAR
-    #' @importFrom MVN uniNorm hzTest mardiaTest
+    #' @importFrom MVN mvn
     #' @importFrom graphics abline axis curve hist 
     #' @importFrom graphics legend lines par plot points axTicks title
     #' @importFrom utils capture.output globalVariables read.table write.table

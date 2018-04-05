@@ -1,7 +1,7 @@
 
-KarsTS: An interface for karstic time series
+KarsTS: An interface for microclimate time series
 
-Date: May, 2017
+Date: April, 2018
 
 License: GPL (>=2)
 
@@ -10,7 +10,7 @@ Thesis advisors: David Benavente García and Soledad Cuezva Robleño
 Contributor: Concepción Pla Bru 
 
 Citation: 
-Marina Sáez (2017). KarsTS: An interface for karstic time series. R package version 1.1.
+Marina Sáez (2018). KarsTS: An interface for microclimatic time series. R package version 2.1.
 
 If you have any problem, email the maintainer (marinasaez_andreu@hotmail.com). 
 Suggestions for the next version are welcome too.  

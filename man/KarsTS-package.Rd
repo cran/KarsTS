@@ -9,7 +9,7 @@
 }
 \details{
 
-\pkg{KarsTS} is a package for karstic time series, although it can be useful in other fields. Karstic research typically includes CO2 and Rn concentrations and microclimatic measurements. Many of these time series have a strong non-linear behavior. Gaps are often a significant problem because caves are aggressive environments for the measuring devices. \pkg{KarsTS} provides linear and non-linear analysis and filling methods, as well as tools to manipulate easily time series and gap sets. \cr
+\pkg{KarsTS} is a package for microclimate time series, with an emphasis on undergroung environments, such as caves. Microclimate research typically includes CO2 and Rn concentrations, temperature and humidity time series, amongst others. Many of these time series have a strong nonlinear behavior and they often contain significant gaps. \pkg{KarsTS} provides linear and non-linear analysis and filling methods, as well as tools to manipulate easily time series and gap sets. \cr
 \cr
 The interface \pkg{KarsTS} is opened by running the function \code{KarsTS} on the R or RStudio console. It has five menus: Time Series, Gap Sets, Analysis, Plots and Filling. \cr
 \bold{Time Series menu}: time series basic manipulation (loading, saving, resampling, scaling, rounding, etc.). \cr
@@ -27,7 +27,7 @@ Maintainer: \packageMaintainer{KarsTS}
 }
 \note{
 Please, cite this package as: \cr
-Marina Saez (2017). KarsTS: An interface for karstic time series. R package version 2.0.
+Marina Saez (2018). KarsTS: An interface for microclimate time series. R package version 2.1.
 }
 
 \keyword{ package }

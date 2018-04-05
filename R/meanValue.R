@@ -1,5 +1,5 @@
 meanValue <-
-  function() {
+function() {
     showPANmnvl <- function() {
       refreshDataSetsList(outp = FALSE)
       createSubPanR4C1()

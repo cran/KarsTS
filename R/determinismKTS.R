@@ -4,7 +4,7 @@ function() {
   showPANdeterm <- function() {
     refreshDataSetsList(outp = FALSE)
     createSubPanR4C1()
-    createTITLE(labTitle = "DETERMINISM")
+    createTITLE(labTitle = "SELF-REPEATING RATE")
     createRmRb()
     createEntry(labTitle = "Lines minimum length", 
                 textVariableName = "minLength",defaultVal = "2")
@@ -142,13 +142,13 @@ function() {
         
         writeDetResult <- function(DET, ratioRqa, RR, selRmName, selMinLength, 
                                    summLengths, summLengthsSec, selRm, rhomb) {
-          txt <- c("DETERMINISM", date(), 
+          txt <- c("SELF-REPEATING RATE", date(), 
                    paste(" Recurrence matrix:", selRmName), 
                    paste(" Rhomboidal shape:", rhomb),
                    paste(" Minimum length of the diagonal lines:", 
                          selMinLength), 
                    paste(" Recurrence rate:", round(RR, 4)), 
-                   paste(" Determinism:", round(DET, 4)), 
+                   paste(" Self-repeating rate:", round(DET, 4)), 
                    paste(" Ratio:", round(ratioRqa, 4)), 
                    " Summaries of the lengths")
           txt01 <- "  In number of measurements"

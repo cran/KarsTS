@@ -1,5 +1,5 @@
 createSimpleRMPlot <-
-  function() {
+function() {
     
     showPANsrmp1 <- function() {
       

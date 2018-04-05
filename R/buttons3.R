@@ -41,7 +41,7 @@ function() {
                 command = createCrossRM)
     subMenu3But(parent = row232, text = "Joint rec. matrix", 
                 command = createJointRM)
-    subMenu3But(parent = row232, text = "Determinism", 
+    subMenu3But(parent = row232, text = "Self-rep. rate", 
                 command = determinismKTS)
     subMenu3But(parent = row232, text = "Laminarity", 
                 command = laminarityKTS)
