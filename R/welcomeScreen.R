@@ -2,7 +2,7 @@ welcomeScreen <-
 function() {
   KTSEnv$mainPanel.0 <- tcltk::tktoplevel(bg = "white")
   tcltk::tkwm.title(KTSEnv$mainPanel.0, 
-                    "KarsTS: AN INTERFACE FOR KARSTIC TIME SERIES")
+                    "KarsTS: AN INTERFACE FOR MICROCLIMATE TIME SERIES")
   row1.0 <- tcltk::tkframe(KTSEnv$mainPanel.0, bg = "blue")
   row2.0 <- tcltk::tkframe(KTSEnv$mainPanel.0, bg = "white", 
                            borderwidth = 2, relief = "raised", 
@@ -28,7 +28,7 @@ function() {
                                 font = fontTITULO, background = "white", 
                                 foreground = "darkblue")
   welcomeTxt2 <- tcltk::tklabel(row2.0, 
-                                text = "AN INTERFACE FOR KARSTIC TIME SERIES", 
+                                text = "AN INTERFACE FOR MICROCLIMATE TIME SERIES", 
                                 height = 5, font = KTSEnv$KTSFonts$mainBt, 
                                 background = "white", foreground = "darkblue")
   welcomeTxt3 <- tcltk::tklabel(row2.0, text = "Marina Saez Andreu", 

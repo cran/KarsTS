@@ -27,7 +27,7 @@ Maintainer: \packageMaintainer{KarsTS}
 }
 \note{
 Please, cite this package as: \cr
-Marina Saez (2018). KarsTS: An interface for microclimate time series. R package version 2.1.
+Marina Saez (2018). KarsTS: An interface for microclimate time series analysis. R package version 2.2.
 }
 
 \keyword{ package }

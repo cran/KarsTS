@@ -3,7 +3,7 @@ function() {
     
     KTSEnv$mainPanel <- tcltk::tktoplevel(bg = "white")
     tcltk::tkwm.title(KTSEnv$mainPanel, 
-                      "KarsTS: An interface for karstic time series")
+                      "KarsTS: An interface for microclimate time series")
     KTSEnv$frameForButtons0 <- tcltk::tkframe(KTSEnv$mainPanel, 
                                               bg = "blue", height = 70)
     KTSEnv$row1 <- tcltk::tkframe(KTSEnv$frameForButtons0, height = 70, 

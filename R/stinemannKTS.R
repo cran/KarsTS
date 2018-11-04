@@ -1,8 +1,8 @@
 stinemannKTS <-
 function() {
     
-    na.stinterp <- function(object, along = stats::time(object), na.rm = TRUE, ...)
-    {
+    na.stinterp <- function(object, 
+                            along = stats::time(object), na.rm = TRUE, ...){
       along <- as.numeric(along)
       na.stinterp.0 <- function(y) {
         na <- is.na(y)
@@ -16,11 +16,12 @@ function() {
     }
     
     
-    "stinterp" <-
-      function (x, y, xout, yp, method = c("scaledstineman", "stineman", 
-                                           "parabola")) 
-      {
-        if (missing(x) || missing(y) || missing(xout)) 
+    "stinterp" <- function (x, y, xout, yp, 
+                            method = c("scaledstineman", 
+                                       "stineman", 
+                                       "parabola")){
+      
+      if (missing(x) || missing(y) || missing(xout)) 
           stop("Wrong number of input arguments, x, y and xout must be specified")
         if (!is.vector(x) || !is.vector(y) || !is.vector(xout) || 
             !is.numeric(x) || !is.numeric(y) || !is.numeric(xout)) 
@@ -48,7 +49,7 @@ function() {
         
         #calculation of slopes if needed
         if (missing(yp)) {
-          yp <- switch(match.arg(method), # this allows for partial argument matching 
+          yp <- switch(match.arg(method), # allows 4 partial argument matching 
                        scaledstineman = stinemanSlopes(x,y, scale = TRUE), 
                        stineman = stinemanSlopes(x, y, scale = FALSE), 
                        parabola = parabolaSlopes(x, y))
@@ -72,7 +73,8 @@ function() {
         ix1 <- ix[idx]
         ix2 <- ix1 + 1
         
-        # computation of the interpolant for the three cases dyo1dyo2 ==, > and < 0
+        # computation of the interpolant for 
+        # the three cases dyo1dyo2 ==, > and < 0
         
         dxo1 <- xout[idx] - x[ix1]
         dxo2 <- xout[idx] - x[ix2]
@@ -81,7 +83,9 @@ function() {
         dyo2 <- (yp[ix2] - s[ix1]) * dxo2
         dyo1dyo2 <- dyo1 * dyo2
         yo <- y0o
-        if (m > 2 || !missing(yp)) { # linear interpolation is sufficient for m=2 unless slopes are given, then nothing more is done
+        # linear interpolation is sufficient for m=2 unless slopes are given,
+        # then nothing more is done
+        if (m > 2 || !missing(yp)) { 
           id <- dyo1dyo2 > 0
           yo[id] <- y0o[id] + dyo1dyo2[id]/(dyo1[id] + dyo2[id])
           id <- dyo1dyo2 < 0
@@ -160,6 +164,10 @@ function() {
     stineOnOk <- function() {
       selTsName <- verifyCharEntry(tcltk::tclvalue(KTSEnv$selTsP), 
                                    noValid = NA)
+      peri <- verifyIntEntry(tcltk::tclvalue(KTSEnv$peri),
+                             noValid = NA)
+      
+      
       if (is.na(selTsName)) {
         tcltk::tkmessageBox(message = "Choose a time series", 
                             icon = "warning")
@@ -204,18 +212,59 @@ function() {
                               icon = "warning")
         } else {
           
-          filledData <- na.stinterp(object = selTs$value, 
-                                    along = selTs$time, 
-                                    na.rm = FALSE)
+          
+          
+          if(is.na(peri)){peri <- 1}
+          
           filledTS <- selTs
-          filledTS$value[selGap$gaps] <- filledData[selGap$gaps]
+          
+          for (ppp in 1:peri){
+            
+            posi.ppp <- seq(ppp, nrow(selTs),peri)
+            
+            gg <- rep(3,nrow(selTs))
+            gg[selGap$gaps] <- 2
+            gg <- gg[posi.ppp]
+            gg <- which(gg == 2)
+            
+            if(length(gg) > 0){
+              
+              filledTS.i <- selTs[posi.ppp,]
+              rownames(filledTS.i) <- NULL
+              
+              filledData <- na.stinterp(object = filledTS.i$value, 
+                                        along = filledTS.i$time, 
+                                        na.rm = FALSE)
+              
+              
+              filledTS.i$value[gg] <- filledData[gg]
+              
+              
+              filledTS$value[posi.ppp] <- filledTS.i$value
+              
+              rm(filledTS.i)
+              
+            }
+            
+            rm(gg,posi.ppp)
+            
+          }
+          
+
           assign(paste0(selTsName, "_", selGapName, "_sti"), 
                  filledTS, envir = KTSEnv)
           gapsAfterFill <- getGapsAfterFill(filledTS, selGap, 
                                             envir = environment(stineOnOk))
           remainingNAsInGap <- gapsAfterFill$remainingNAsInGap
           filledNasTable <- gapsAfterFill$filledNasTable
+          if(peri == 1){
+            txtPeri <- "Period: none (1)"
+          }else{
+            txtPeri <- paste("Period:", peri) 
+          }
           writeMethodTitle("STINEMANN'S INTERPOLATION")
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", txtPeri)
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
           writeMethodSummary(filledNasTable, remainingNAsInGap, 
                              selTsName, 
                              selGapName, selGap)
@@ -234,6 +283,8 @@ function() {
         createGapRb()
       }
       createTsRb()
+      createEntry(labTitle = "Period", textVariableName = "peri",
+                  defaultVal = "1")
       createOK(labTitle = "RUN", action = stineOnOk)
       tcltk::tkpack(KTSEnv$subPanR4C1, expand = TRUE, fill = "both")
       
