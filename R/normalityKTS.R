@@ -14,7 +14,7 @@ function() {
       testNormUni <- function(timSer, timSerName) {
         
         tcltk::tkinsert(KTSEnv$txtWidget, "end", timSerName)
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
         
         for (j in c("CVM", "Lillie", "AD")) {
           
@@ -27,7 +27,7 @@ function() {
                                 "p_value:", 
                                 round(result$univariateNormality[1,4],2)))
             tcltk::tkinsert(KTSEnv$txtWidget, "end", txtNorm1)
-            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
             rm(txtNorm1)
             
           }
@@ -36,7 +36,7 @@ function() {
           
         }
         
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
         
       }
       
@@ -45,7 +45,7 @@ function() {
       nTS <- length(tsToTestNames)
       writeMethodTitle("NORMALITY TESTS")
       tcltk::tkinsert(KTSEnv$txtWidget, "end", "Univariate normality tests")
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
       
       for (i in tsToTestNames) {
         
@@ -80,10 +80,10 @@ function() {
           
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                           "Multivariate normality tests")
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                           paste(tsToTestNames, collapse = ","))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           
           # result <- try(MVN::hzTest(tsToTest, cov = TRUE, qqplot = FALSE), 
           #               silent = TRUE)
@@ -103,7 +103,7 @@ function() {
           }
           
           tcltk::tkinsert(KTSEnv$txtWidget, "end", txtNorm1)
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
           rm(result, txtNorm1)
           
           result <- try(MVN::mvn(tsToTest, mvnTest = "mardia",
@@ -124,14 +124,14 @@ function() {
           }
           
           tcltk::tkinsert(KTSEnv$txtWidget, "end", txtNorm1)
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
           rm(result, txtNorm1)
           
         }
         
       }
       
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
       endingLines()
       cleanEnvir()
       refreshDataSetsList(outp = FALSE)

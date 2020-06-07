@@ -131,17 +131,17 @@ function() {
               txt6 <- utils::capture.output(print.data.frame(filledGapsTable))
               txt0 <- c(txt1, txt21, txt22, txt23)
               tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                              paste(txt0, collapse = "\n"))
-              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                              paste(txt0, collapse = "\\n"))
+              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
               tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                              paste(txt4, collapse = "\n"))
-              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                              paste(txt4, collapse = "\\n"))
+              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
               tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                              paste(txt5, collapse = "\n"))
-              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                              paste(txt5, collapse = "\\n"))
+              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
               tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                              paste(txt6, collapse = "\n"))
-              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                              paste(txt6, collapse = "\\n"))
+              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
               
             }
           }

@@ -255,11 +255,11 @@ function() {
         
         writeMethodTitle("MUTUAL INFORMATION")
         tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                        paste(txt, collapse = "\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                        paste(txt, collapse = "\\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
         tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                        paste(txt1, collapse = "\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+                        paste(txt1, collapse = "\\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
         endingLines()
         
         if(is.na(slidWin)==FALSE){

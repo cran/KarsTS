@@ -9,16 +9,12 @@ Time series need to have a homogeneous sampling period for most calculations.Thi
 }
 %- maybe also 'usage' for other objects documented here.
 \details{
- Once chosen the time serie to analyze, Susana offers a list of possible sampling periods (time jumps in the time series), but a human decision is necessary to separate safely true sampling periods from gaps.Tipically, time jumps correspoding to sampling periods appear many times. 
+ Once chosen the time serie to analyze, KarsTS offers a list of possible sampling periods (time jumps in the time series), but a human decision is necessary to separate safely true sampling periods from gaps.Tipically, time jumps correspoding to sampling periods appear many times. 
 }
 \value{
-A table containing the aforementioned information appears on Susana output window.
+A table containing the aforementioned information appears on KarsTS output window.
 }
 
 \author{
 Marina Saez Andreu
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

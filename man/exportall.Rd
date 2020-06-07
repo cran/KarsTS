@@ -15,8 +15,3 @@ All types of data sets can be exported both from the Time Series  menu or from t
 \author{
 Marina Saez Andreu
 }
-
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

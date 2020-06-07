@@ -23,15 +23,3 @@ Predicted values
 \author{
 Marina Saez Andreu
 }
-
-\examples{
-
-observed <- genTSExample(stationary = FALSE, InKTSEnv = FALSE)$value
-predicted <- observed + stats::rnorm(stats::rnorm(length(observed)))
-myLinModel(observed, predicted)
-
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

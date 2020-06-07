@@ -5,7 +5,7 @@
 writeMethodSummary: writes a summary of the filling method
 }
 \description{
-This function is internally used when any of the filling methods that Susana offers is used. It writes on Susana output window information that is shared by all filling methods: which time series and gap set were to fill, which gaps were effectively filled and which remained empty. Filling-method-specific information is writen trhough other functions. It is used internally.
+This function is internally used when any of the filling methods that KarsTS offers is used. It writes on KarsTS output window information that is shared by all filling methods: which time series and gap set were to fill, which gaps were effectively filled and which remained empty. Filling-method-specific information is writen trhough other functions. It is used internally.
 }
 \usage{
 writeMethodSummary(filledNasTable, remainingNAsInGap, selTsName, selGapName, selGap)
@@ -32,8 +32,3 @@ Gap set that was meant to be filled
 \author{
 Marina Saez Andreu
 }
-
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

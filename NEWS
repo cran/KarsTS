@@ -1,0 +1,10 @@
+Changes in new version
+
+Version KarsTS 2.3 (June 7, 2020)
+-------------------------------------------
+
+- A function to upsample time series was added (the previous version only allowed downsampling)
+- Functions to build and plot fixed amount of neighbors recurrence matrices were added.
+- Now the user can choose the resolution that will be used when saving the plots to image files. 
+- The examples were edited. 
+- The button MCAR Little's test was removed

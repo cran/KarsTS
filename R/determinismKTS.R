@@ -175,23 +175,23 @@ function() {
                                                      collapse = ",")))
           
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txt, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt01, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+                          paste(txt01, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt1, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txt1, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt2, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+                          paste(txt2, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt3, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txt3, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt4, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txt4, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           endingLines()
         }
         

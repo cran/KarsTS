@@ -20,9 +20,9 @@ function(filledNasTable, remainingNAsInGap,
   }
   txtAll <- c(txt2, txt3, txt33, txt4, txt5)
   tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                  paste(txtAll, collapse = "\n"))
-  tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n\n")
+                  paste(txtAll, collapse = "\\n"))
+  tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n\\n")
   tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                  paste(txt6, collapse = "\n"))
-  tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n\n")
+                  paste(txt6, collapse = "\\n"))
+  tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n\\n")
 }

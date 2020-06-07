@@ -18,8 +18,3 @@ The function creates a gap set and applies it to a copy of the input time series
 \author{
 Marina Saez Andreu
 }
-
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

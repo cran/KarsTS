@@ -38,8 +38,8 @@ function(outp = TRUE) {
                paste("Length:", as.character(lTimSer)), 
                paste("Likely sampling periods(sec):",
                      paste(sampPers, collapse = ",")))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
     }
     writeOutpGap <- function(nameGap) {
       gapSet <- get(nameGap, envir = KTSEnv)
@@ -53,8 +53,8 @@ function(outp = TRUE) {
                paste("length and sampling period:", 
                      gapSet$tsLength, ";", gapSet$samPerMin))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                      paste(txt, collapse = "\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                      paste(txt, collapse = "\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
     }
     writeOutpRM <- function(nameRM) {
       recMat <- get(nameRM, envir = KTSEnv)
@@ -79,34 +79,34 @@ function(outp = TRUE) {
                paste("Sampling periods:", 
                      paste(recMat$samPerSec, collapse = ",")), 
                paste("Initial dates:", paste(recMat$tsIni, collapse = ",")))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
     }
     tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                    paste("LOADED OBJECTS", collapse = "\n"))
-    tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                    paste("LOADED OBJECTS", collapse = "\\n"))
+    tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
     tcltk::tkinsert(KTSEnv$txtWidget, "end", date())
-    tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+    tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
     if (class(KTSEnv$dSList$TS) == "character") {
       apply(as.matrix(KTSEnv$dSList$TS), 1, FUN = writeOutpTs)
     } else {
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                      paste("TIME SERIES:none", collapse = "\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                      paste("TIME SERIES:none", collapse = "\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
     }
     if (class(KTSEnv$dSList$gaps) == "character") {
       apply(as.matrix(KTSEnv$dSList$gaps), 1, FUN = writeOutpGap)
     } else {
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                      paste("SETS OF GAPS:none", collapse = "\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                      paste("SETS OF GAPS:none", collapse = "\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
     }
     if (class(KTSEnv$dSList$rm) == "character") {
       apply(as.matrix(KTSEnv$dSList$rm), 1, FUN = writeOutpRM)
     } else {
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                      paste("RECURRENCE MATRICES:none",collapse = "\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                      paste("RECURRENCE MATRICES:none",collapse = "\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
     }
     endingLines()
   }

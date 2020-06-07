@@ -92,11 +92,11 @@ function() {
           txtCorrM <- utils::capture.output(print.data.frame(corrMdf))
           txtAll <- c(txt1, txt2, txt3, txt4, txt5, txt6, txt7)
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txtAll, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txtAll, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txtCorrM, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txtCorrM, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           corrSumDimPlot <- function() {
             graphics::plot(resCorrDim)
             
@@ -134,11 +134,11 @@ function() {
           txtSampE <- utils::capture.output(print.data.frame(sampEntropy))
           txtAll <- c(txt1, txt2, txt3, txt4, txt5, txt6, txt7)
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txtAll, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txtAll, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txtSampE, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txtSampE, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           sampEntroPlot <- function() {
             graphics::plot(resSampEnt)
           }

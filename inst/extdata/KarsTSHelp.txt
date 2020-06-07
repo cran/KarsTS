@@ -93,8 +93,10 @@ For further information, check the User's Guide
   * Artificial Specific Gaps: Unlike the previous button, this one creates a gap at a specific position chosen by the user.
 
   * ApplyGaps to Time Series:It applies a gap set to a time series, so that the new time series contains NAs at the positions specified by the gap set.
+
+  * Upsample:It introduces NAs in a time series in order to upsample it. These NAs need to be filled later.
+
   
-  * Little's MCAR test: It test if the gaps are missing completely at random.
 
   
   *** ANALYSIS MENU ***
@@ -125,7 +127,7 @@ For further information, check the User's Guide
 
   * Laminarity: It calculates the recurrence rate, laminarity and ratio of a recurrence matrix. It returns also a vertical lines length summary and it plots its histogram. It allows NAs.
 
-  * Recurrence Matrix, Cross Recurrence Matrix and Joint Recurrence Matrix create, respectively, a simple, cross or joint recurrence matrix. 
+  * Recurrence Matrix, FAN Recurrence MAtrix, Cross Recurrence Matrix and Joint Recurrence Matrix create, respectively, a simple, a fixed amount of neighbours, cross or joint recurrence matrix. 
 
   
   *** PLOTS MENU ***
@@ -155,6 +157,9 @@ For further information, check the User's Guide
   * Cross Recurrence Plot 
 
   * Joint Recurrence Plot 
+
+  * FAN Recurrence Plot 
+
 
   Some buttons in the Analysis Menu produce plots too.
 

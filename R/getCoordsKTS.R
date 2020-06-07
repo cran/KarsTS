@@ -78,11 +78,11 @@ function() {
           txt1 <- c("SELECTED POINTS", paste("Time series:", selTsName))
           txt6 <- utils::capture.output(print.data.frame(greenedTable))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt1, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txt1, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt6, collapse = "\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                          paste(txt6, collapse = "\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
         }
       }
       clearSelection <- function() {

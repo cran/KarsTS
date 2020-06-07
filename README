@@ -1,0 +1,8 @@
+KarsTS 2.3
+
+KarsTS is an R-based code with a GUI designed to analyze microclimatic time series with an emphasis on underground environments, such as caves; nonetheless, it can be useful in many other fields of research.
+
+KarsTS was born as a package for time series gap filling and thus, it offers multiple univariate and multivariate gap filling tools. However, as KarsTS was intended to be a self-sufficient program, it soon grew to encompass several tools for linear and nonlinear time series analysis, preprocessing and plotting. In particular, KarsTS includes several tools for recurrence analysis.
+
+For further information, please, check the User's guide, which is located in the folder inst/extdata.
+

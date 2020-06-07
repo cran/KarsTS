@@ -35,8 +35,8 @@ function() {
                 command = createSpecGaps)
     subMenu2But(parent = row232, text = "Apply gaps to series", 
                 command = applyGap2TSer)
-    subMenu2But(parent = row232, text = "Little's MCAR test", 
-                command = littleTest)
+    subMenu2But(parent = row232, text = "Upsample", 
+                command = NAs4Resamp)
     
     tcltk::tkpack(row232, anchor = "nw", fill = "both")
     assign("row231", row231, envir = KTSEnv)

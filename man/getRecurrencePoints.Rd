@@ -60,7 +60,3 @@ graphics::points(1:LT, 1:LT, cex = 0.3, col = 4)
 
 graphics::par(pty = "m")
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

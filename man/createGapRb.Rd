@@ -28,8 +28,3 @@ A variable to be passed to the corresponding OnOk function
 Marina Saez Andreu
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
-

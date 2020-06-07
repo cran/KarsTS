@@ -5,7 +5,7 @@
 separateEntry: separates and checks comma-separated entry values
 }
 \description{
-Some text entries in Susana consist of a list of values separated by commas. This function separates the values and checks whether they have the appropiate format.It is used internally
+Some text entries in KarsTS consist of a list of values separated by commas. This function separates the values and checks whether they have the appropiate format.It is used internally
 }
 \usage{
 separateEntry(y, class1 = verifyIntEntry, class2 = verifyCharEntry, noValid = NA)
@@ -25,8 +25,3 @@ The class the second element should be
 The output to return when the input is not valid
 }
 }
-
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

@@ -104,6 +104,7 @@ function ()
           
           infNorm <- function(v1, v2) {
             
+            if(any(class(v2)=="numeric")){v2 <- t(as.matrix(v2))}
             lv2 <- NROW(v2)
             apply(abs(v2 - matrix(rep(v1, each = lv2), lv2, embedDim)), 
                   1, FUN = max, na.rm = FALSE)
@@ -464,16 +465,24 @@ function ()
         KTSEnv$filename <- filename
         
         winW <- verifyIntEntry(tcltk::tclvalue(entryVar2), noValid = NA)
+        
         if(is.na(winW)){
-          winW <- 1000
+          winW <- 15
         }
         KTSEnv$winW <- winW     
         
         winH <- verifyIntEntry(tcltk::tclvalue(entryVar3), noValid = NA)
         if(is.na(winH)){
-          winH <- 1000
+          winH <- 15
         }
         KTSEnv$winH <- winH
+        
+        
+        resIm <- verifyIntEntry(tcltk::tclvalue(entryVar4), noValid = NA)
+        if(is.na(resIm)){
+          resIm <- 300
+        }
+        KTSEnv$resIm <- resIm
         
         tcltk::tkdestroy(KTSEnv$newWin)
         
@@ -493,7 +502,7 @@ function ()
       entryVar2 <- tcltk::tclVar("")
       ent2 <-tcltk2::tk2entry(KTSEnv$newWin, width = "25",
                               textvariable = entryVar2)
-      text2 <- "Width (pixels)"
+      text2 <- "Width (cm)"
       lab2 <- tcltk2::tk2label(KTSEnv$newWin,
                                text = text2,
                                justify = "left")
@@ -501,9 +510,18 @@ function ()
       entryVar3 <- tcltk::tclVar("")
       ent3 <-tcltk2::tk2entry(KTSEnv$newWin, width = "25",
                               textvariable = entryVar3)
-      text3 <- "Height (pixels)"
+      text3 <- "Height (cm)"
       lab3 <- tcltk2::tk2label(KTSEnv$newWin,
                                text = text3,
+                               justify = "left")
+      
+      
+      entryVar4 <- tcltk::tclVar("")
+      ent4 <-tcltk2::tk2entry(KTSEnv$newWin, width = "25",
+                              textvariable = entryVar4)
+      text4 <- "Resolution (ppi)"
+      lab4 <- tcltk2::tk2label(KTSEnv$newWin,
+                               text = text4,
                                justify = "left")
       
       tcltk::tkgrid(lab1,padx = 10, pady = c(15, 5), sticky = "w")
@@ -512,15 +530,18 @@ function ()
       tcltk::tkgrid(ent2, padx = 10, pady = c(0, 15))
       tcltk::tkgrid(lab3,padx = 10, pady = c(15, 5), sticky = "w")
       tcltk::tkgrid(ent3, padx = 10, pady = c(0, 15))
+      tcltk::tkgrid(lab4,padx = 10, pady = c(15, 5), sticky = "w")
+      tcltk::tkgrid(ent4, padx = 10, pady = c(0, 15))
       
       OKbutton <-tcltk::tkbutton(KTSEnv$newWin, text = "OK",
                                  width = -6, command = onOK)
       tcltk::tkgrid(OKbutton, padx = 10, pady = c(5, 15))
-      tcltk::tkbind(ent3, "<Return>", onOK)
+      tcltk::tkbind(ent4, "<Return>", onOK)
       tcltk::tkfocus(KTSEnv$newWin)
       
     }
     
+  
     savePopUp()
     tcltk::tkwait.window(KTSEnv$newWin)
     exten <- getExtension(KTSEnv$filename)
@@ -535,13 +556,15 @@ function ()
     
     if( exten == "tiff"){
       
-      grDevices::tiff(filename = KTSEnv$filename,units = "px",
-                      width = KTSEnv$winW, height = KTSEnv$winH)
+      grDevices::png(filename = KTSEnv$filename,units = "cm",
+                      width = KTSEnv$winW, height = KTSEnv$winH,
+                      res = KTSEnv$resIm)
       
     }else{
       
-      grDevices::png(filename = KTSEnv$filename,units = "px",
-                     width = KTSEnv$winW, height = KTSEnv$winH) 
+      grDevices::png(filename = KTSEnv$filename,units = "cm",
+                     width = KTSEnv$winW, height = KTSEnv$winH,
+                     res = KTSEnv$resIm) 
       
     }
     

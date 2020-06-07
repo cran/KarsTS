@@ -33,9 +33,3 @@ The smoothed time series. The function stops when there are no more outliers or 
 \author{
 Marina Saez andreu
 }
-
-
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

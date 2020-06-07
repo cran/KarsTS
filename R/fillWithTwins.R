@@ -97,7 +97,7 @@ function() {
             aaques <- paste("The selected time series name matches one of",
                             "the names stored in the recurrence matrix,",
                             " so probably no gaps will be found at",
-                            "distance 0.\n                       Do",
+                            "distance 0.\\n                       Do",
                             "you want to go ahead?")
             if (any(selRm$tsName == KTSEnv$selTsName)) {
               continueYN <- tcltk::tkmessageBox(message = aaques, 
@@ -256,13 +256,13 @@ function() {
                       txtSteps <- paste("Filled gaps each distance:", 
                                         paste(filledEachDist,collapse = ","))
                       tcltk::tkinsert(KTSEnv$txtWidget, "end", txtSteps)
-                      tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
+                      tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n")
                       txtDist <- paste("Maximum distance:", maxDist)
                       tcltk::tkinsert(KTSEnv$txtWidget, "end", txtDist)
-                      tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
+                      tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n")
                       txtMatrix <- paste("Recurrence matrix:", selRmName)
                       tcltk::tkinsert(KTSEnv$txtWidget, "end", txtMatrix)
-                      tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
+                      tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n")
                       writeMethodSummary(filledNasTable, remainingNAsInGap, 
                                          KTSEnv$selTsName, 
                                          KTSEnv$selGapName, KTSEnv$selGap)

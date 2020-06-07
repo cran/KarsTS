@@ -14,11 +14,11 @@ function(timeCharacter, tz = KTSEnv$timeZone) {
   if (dateFormat == "notValidFormat") {
     tcltk::tkmessageBox(message = paste("The date format is not",
                                         "valid. Valid formats are:",
-                                        " \n                ",
-                                        " %m/%d/%Y %H:%M\n                 ",
-                                        "%Y/%m/%d %H:%M\n                 ",
-                                        "%Y-%m-%d %H:%M \n                 ",
-                                        "%m-%d-%Y %H:%M.\n                 ",
+                                        " \\n                ",
+                                        " %m/%d/%Y %H:%M\\n                 ",
+                                        "%Y/%m/%d %H:%M\\n                 ",
+                                        "%Y-%m-%d %H:%M \\n                 ",
+                                        "%m-%d-%Y %H:%M.\\n                 ",
                                         "Check also that all the dates",
                                         "have the same format"), 
                         icon = "warning")

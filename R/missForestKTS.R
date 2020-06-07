@@ -216,18 +216,18 @@ function() {
                          " (Out of the box error:", OBErrors, ")")
       txtOutput <- "Filled time series:"
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                      paste(txtParam, collapse = "\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                      paste(txtParam, collapse = "\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                      paste(txtInput, collapse = "\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+                      paste(txtInput, collapse = "\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                      paste(txtError, collapse = "\n"), 
-                      collapse = "\n")
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                      paste(txtError, collapse = "\\n"), 
+                      collapse = "\\n")
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                      paste(txtOutput, collapse = "\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+                      paste(txtOutput, collapse = "\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
     }
     giveOutputs <- function(outTSNames.i, outTSNames, inpTSNames, 
                             imputedData, 

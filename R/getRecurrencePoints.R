@@ -26,11 +26,13 @@ function(timSer,embedDim, lagDelay, threshold){
     dataTS <- tseriesChaos::embedd(timSer$value, 
                                    m = embedDim, d = lagDelay)
     infNorm <- function(v1, v2) {
+      if(any(class(v2)=="numeric")){v2 <- t(as.matrix(v2))}
       lv2 <- NROW(v2)
       apply(abs(v2 - matrix(rep(v1, each = lv2), lv2, embedDim)), 
             1,FUN = max, na.rm = FALSE)
     }
   }
+  
   indices <- as.matrix(1:(nrow(dataTS) - 1))
   recPointsY <- apply(indices, 1, FUN = findRecPointY, 
                       dataTS = dataTS,lDataTS = nrow(dataTS),

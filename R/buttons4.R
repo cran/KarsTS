@@ -26,10 +26,11 @@ function() {
                 command = mutualKTS)
     subMenu4But(parent = row231, text = "Wind Rose", 
                 command = windRoseKTS)
+    subMenu4But(parent = row231, text = "Histogram", 
+                command = histKTS)
     tcltk::tkpack(row231, anchor = "nw", fill = "both")
     row232 <- tcltk::ttkframe(KTSEnv$rows2and3, borderwidth = 0, 
                               relief = "raised")
-    subMenu4But(parent = row232, text = "Histogram", command = histKTS)
     subMenu4But(parent = row232, text = "Phase portraits", 
                 command = scattTimeSeries)
     subMenu4But(parent = row232, text = "FNN", 
@@ -39,6 +40,7 @@ function() {
                 command = createSimpleRMPlot)
     subMenu4But(parent = row232, text = "Cross rec. plot", 
                 command = createCrossRMPlot)
+    subMenu4But(parent = row232, text = "FAN rec. plot", command = createFANplot)
     subMenu4But(parent = row232, text = "Distance plot", 
                 command = createDistMatrix)
     subMenu4But(parent = row232, text = "RP", 

@@ -1,6 +1,4 @@
 
-
-
 makeGlobal <- c("KTSEnv","CombiType", "OBErrors", "UF", "activMenu",
                 "alfa", "candidToRedden", "cenday","cenhour", "cenmins",
                 "cenmonth", "censecs", "cenyear", "correl", "cri1cbValue",
@@ -54,7 +52,8 @@ makeGlobal <- c("KTSEnv","CombiType", "OBErrors", "UF", "activMenu",
                 "tsToPlotNames","lineas","puntos","lin","poin",
                 "tsToPlotNamesZ","xlabs","ylabs","zlabs","tickSis","labSis","CoLoRs",
                 "linWs", "poiSs","suff","newWin","filename","winW","winH",
-                "xScls","yScls","CountTS","defaultTSCoLoRs","typeDist","typeDi")
+                "xScls","yScls","CountTS","defaultTSCoLoRs","typeDist","typeDi",
+                "resIm","fanOption","fiAmNe","fan")
 
 
 #' @import utils

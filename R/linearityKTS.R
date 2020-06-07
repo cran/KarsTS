@@ -68,13 +68,13 @@ function() {
                                           K = 20)
               nLTr <- nonlinearTseries::nonlinearityTest(dataToTest, 
                                                          verbose = FALSE)
-              txt0 <- paste("LINEARITY TESTS FOR:", selTsName, "\n")
+              txt0 <- paste("LINEARITY TESTS FOR:", selTsName, "\\n")
               txt01 <- c("Surrogates test", 
                          " Based on 20 surrogates", 
                          " Two sided", 
                          paste(" Significance level:", selSLev), 
                          paste(" Delay:", lagDelay), 
-                         surTestTxt, "\n")
+                         surTestTxt, "\\n")
               txt1 <- c("Teraesvirta's neural network test", 
                         " Null hypothesis: Linearity in mean", 
                         paste(" X-squared = ", 
@@ -82,7 +82,7 @@ function() {
                               " df = ", nLTr$Terasvirta$parameter, 
                               " p-value = ", 
                               round(nLTr$Terasvirta$p.value, 4)), 
-                        "\n")
+                        "\\n")
               txt2 <- c("White neural network test", 
                         " Null hypothesis: Linearity in mean", 
                         paste(" X-squared = ", 
@@ -90,7 +90,7 @@ function() {
                               " df = ",nLTr$White$parameter, 
                               " p-value = ", 
                               round(nLTr$White$p.value), 4), 
-                        "\n")
+                        "\\n")
               txt3 <- c("Keenan's one-degree test for nonlinearity", 
                         paste(" Null hypothesis: The time",
                               "series follows some AR process"), 
@@ -98,13 +98,13 @@ function() {
                               round(nLTr$Keenan$test.stat, 4), 
                               " p-value = ", 
                               round(nLTr$Keenan$p.value, 4)), 
-                        "\n")
+                        "\\n")
               txt4 <- c("McLeod-Li test", 
                         paste(" Null hypothesis:",
                               "The time series follows some ARIMA process"), 
                         paste(" Maximum p-value = ", 
                               round(max(unlist(nLTr$McLeodLi)),4)), 
-                        "\n")
+                        "\\n")
               txt5 <- c("Tsay's Test for nonlinearity", 
                         paste(" Null hypothesis: The time",
                               "series follows some AR process"), 
@@ -112,7 +112,7 @@ function() {
                               round(nLTr$Tsay$test.stat, 4), 
                               " p-value = ", 
                               round(nLTr$Tsay$p.value, 4)), 
-                        "\n")
+                        "\\n")
               txt6 <- c(paste("Likelihood ratio test for",
                               "threshold nonlinearity"), 
                         paste(" Null hypothesis: The time",
@@ -123,12 +123,12 @@ function() {
                               round(nLTr$TarTest$test.stat, 4), 
                               " p-value = ", 
                               round(nLTr$TarTest$p.value, 4)), 
-                        "\n")
-              txt <- c(txt0, date(), "\n", txt01, txt1, txt2, 
+                        "\\n")
+              txt <- c(txt0, date(), "\\n", txt01, txt1, txt2, 
                        txt3, txt4, txt5,txt6)
               tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                              paste(txt, collapse = "\n"))
-              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
+                              paste(txt, collapse = "\\n"))
+              tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
               endingLines()
               cleanEnvir()
               tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "left_ptr")

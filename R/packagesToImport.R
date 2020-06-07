@@ -1,7 +1,6 @@
 packagesToImport <-
 function() {
     #' @importFrom circular circular windrose
-    #' @importFrom BaylorEdPsych LittleMCAR
     #' @importFrom MVN mvn
     #' @importFrom graphics abline axis curve hist 
     #' @importFrom graphics legend lines par plot points axTicks title

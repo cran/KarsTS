@@ -28,10 +28,11 @@ function() {
                 command = stationarityKTS)
     subMenu3But(parent = row231, text = "Linearity", 
                 command = linearityKTS)
+    subMenu3But(parent = row231, text = "PCA", command = pcaKTS)
+    
     tcltk::tkpack(row231, anchor = "nw", fill = "both")
     row232 <- tcltk::ttkframe(KTSEnv$rows2and3, 
                               borderwidth = 0, relief = "raised")
-    subMenu3But(parent = row232, text = "PCA", command = pcaKTS)
     subMenu3But(parent = row232, text = "Mutual info", command = mutInf)
     subMenu3But(parent = row232, text = "Invariants", 
                 command = invariantsKTS)
@@ -41,6 +42,8 @@ function() {
                 command = createCrossRM)
     subMenu3But(parent = row232, text = "Joint rec. matrix", 
                 command = createJointRM)
+    subMenu3But(parent = row232, text = "FAN rec. matrix", 
+                command = createFAN)
     subMenu3But(parent = row232, text = "Self-rep. rate", 
                 command = determinismKTS)
     subMenu3But(parent = row232, text = "Laminarity", 

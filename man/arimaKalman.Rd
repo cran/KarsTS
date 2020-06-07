@@ -11,7 +11,7 @@ This function fits an ARIMA model to a univariate time series and uses the model
 \details{
 This function input panel contains a button called "Estimate ARIMA parameters"; this button calls the function forecast::auto.arima to provide an automatic estimation of the ARIMA parameters.These parameters can also be directly introduced by the user.
 Optionally, the filling can be applied only to a set of gaps in the time series.
-If the time series does not contain any NAs, Susana will fit the ARIMA model anyway and return the parameters. 
+If the time series does not contain any NAs, KarsTS will fit the ARIMA model anyway and return the parameters. 
 
 }
 \value{
@@ -21,10 +21,3 @@ The filled time series appears in the environment susEnv
 \author{
 Marina Saez Andreu
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
