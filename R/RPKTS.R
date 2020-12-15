@@ -28,22 +28,10 @@ function() {
           
         }
         
-        copyPlot <- function() {tkrplot::tkrreplot(tsPlot)}
-        
-        panelName <- createRandName()
-        assign(panelName, tcltk::tktoplevel(bg = "white"))
-        tcltk::tkwm.title(get(panelName), "Recurrence probability")
-        tsPlot <- tkrplot::tkrplot(get(panelName), 
-                                   fun = RPUniPlot, 
-                                   hscale = 3,vscale = 1.5)
-        copyButton <- tcltk::tkbutton(get(panelName), 
-                                      text = "Copy to clipboard",
-                                      command = copyPlot)
-        tcltk::tkpack(tsPlot, expand = TRUE, 
-                      fill = "both", anchor = "center")
-        tcltk::tkconfigure(tsPlot, bg = "white")
-        tcltk::tkpack(copyButton, expand = TRUE, fill = "both")
+        grDevices::dev.new(noRStudioGD = TRUE)
+        RPUniPlot()
         tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "left_ptr")
+        
         RP
       }
       
@@ -104,15 +92,16 @@ function() {
           RP2 <- getOneRP(selRm2,selRmName[2],dimRecMat,minLag,maxLag)
           CRP <- getCRP(prob1 = RP1$Prob,prob2 = RP2$Prob,
                         xLims =c(minLag,maxLag),
-                        doPlot = FALSE,main = "plotTitle")
+                        doPlot = TRUE,
+                        main = paste(selRmName[1],selRmName[2],"RP"))
           
           txt1 <- paste("CPR = ",round(CRP,4))
           txt2 <- paste("Recurrence matrices:",selRmName[1],",",selRmName[2])
           writeMethodTitle("CORRELATION PROBABILITY OF RECURRENCE")
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt1, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt2, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt1, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt2, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           endingLines()
           
           cleanEnvir()
@@ -124,7 +113,6 @@ function() {
       }
       
     }
-    
     showPANRPKTS <- function() {
       
       refreshDataSetsList(outp = FALSE)
@@ -135,7 +123,7 @@ function() {
                   textVariableName = "numlag")
       createEntry(labTitle = "Maximum nuMber of lags", 
                   textVariableName = "nuMlag")
-      createOK(labTitle = "RUN", action = RPKTSOnOk)
+      createOK(labTitle = "PLOT", action = RPKTSOnOk)
       tcltk::tkpack(KTSEnv$subPanR4C1, expand = TRUE, fill = "both")
       
     }

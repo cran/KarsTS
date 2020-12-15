@@ -106,37 +106,20 @@ function() {
         
         getHist <- function(diagLines, selRmName, selMinLength) {
           
-          plothist <- function() {
-            
-            histResult <- graphics::hist(diagLines, 
-                                         breaks = seq(min(diagLines) - 0.5, 
-                                                      max(diagLines) + 0.5, 
-                                                      by = 1), 
-                                         freq = TRUE, plot = TRUE, 
-                                         right = FALSE, col = "darkred", 
-                                         xlab = paste("Lengths (min=", 
-                                                      selMinLength, ")"), 
-                                         main = paste(selRmName, 
-                                                      "diagonal lines length"))
-            
-          }
-          copyPlot <- function() {
-            tkrplot::tkrreplot(tsPlot)
-          }
-          panelName <- createRandName()
-          assign(panelName, tcltk::tktoplevel(bg = "white"))
-          tcltk::tkwm.title(get(panelName), "Histogram")
-          tsPlot <- tkrplot::tkrplot(get(panelName), fun = plothist, 
-                                     hscale = 1.5, 
-                                     vscale = 1.5)
-          copyButton <- tcltk::tkbutton(get(panelName), 
-                                        text = "Copy to clipboard", 
-                                        command = copyPlot)
-          tcltk::tkpack(tsPlot, expand = TRUE, 
-                        fill = "both", anchor = "center")
-          tcltk::tkconfigure(tsPlot, bg = "white")
-          tcltk::tkpack(copyButton, expand = TRUE, fill = "both")
-          tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "left_ptr")
+          grDevices::dev.new(noRStudioGD = TRUE)
+          histResult <- graphics::hist(diagLines, 
+                                       breaks = seq(min(diagLines) - 0.5, 
+                                                    max(diagLines) + 0.5, 
+                                                    by = 1), 
+                                       freq = TRUE, plot = TRUE, 
+                                       right = FALSE, col = "darkred", 
+                                       xlab = paste("Lengths (min=", 
+                                                    selMinLength, ")"), 
+                                       main = paste(selRmName, 
+                                                    "diagonal lines length"))
+          
+          
+           tcltk::tkconfigure(KTSEnv$mainPanel, cursor = "left_ptr")
           
         }
         
@@ -175,23 +158,23 @@ function() {
                                                      collapse = ",")))
           
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                          paste(txt, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt01, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                          paste(txt01, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt1, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                          paste(txt1, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt2, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                          paste(txt2, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt3, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                          paste(txt3, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt4, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                          paste(txt4, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
           endingLines()
         }
         

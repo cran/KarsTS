@@ -114,7 +114,7 @@ function (){
         }
         writeMethodTitle("SPLINES INTERPOLATION")
         tcltk::tkinsert(KTSEnv$txtWidget, "end", txtPeri)
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n")
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
         writeMethodSummary(filledNasTable, remainingNAsInGap, 
                            selTsName, selGapName, selGap)
         

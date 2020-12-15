@@ -15,9 +15,10 @@ function(prob1,prob2,xLims,doPlot = FALSE,main = "plotTitle"){
   
   if(doPlot == TRUE){
     
+    grDevices::dev.new(noRStudioGD = TRUE)
     graphics::barplot(res,col = "cyan3", 
                       border = "cyan4",
-                      xlim = xlim,width = 1,
+                      xlim = xLims,width = 1,
                       main = main,space = 0,
                       xlab = "lag",ylab = "RP",
                       xpd = FALSE)

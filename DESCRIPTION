@@ -1,8 +1,8 @@
 Package: KarsTS
 Type: Package
 Title: An Interface for Microclimate Time Series Analysis
-Version: 2.3
-Date: 2020-06-07
+Version: 2.4
+Date: 2020-12-15
 Authors@R: c(person("Marina", "Saez", email = "marinasaez_andreu@hotmail.com",role = c("aut", "cre")),person("David", "Benavente", role = c("ths")),person("Soledad", "Cuezva", role = c("ths")),person("Concepcion", "Pla", role = c("ctb")))
 Author: Marina Saez [aut, cre],
   David Benavente [ths],
@@ -13,13 +13,12 @@ Description: An R code with a GUI for microclimate time series, with an emphasis
 License: GPL (>= 2)
 Note: Please, cite this package as: Marina Saez (2020). KarsTS: An
         Interface For Microclimate Time Series Analysis. R package
-        version 2.3.
-Imports: circular, MVN, tcltk, tcltk2, tkrplot, tseriesChaos, stlplus,
-        tseries, forecast, stinepack, missForest, nonlinearTseries,
-        stats, graphics, utils, zoo, grDevices, rgl, mgcv, infotheo,
-        plot3D
+        version 2.4.
+Imports: circular, MVN, tcltk, tcltk2, tseriesChaos, stlplus, tseries,
+        forecast, stinepack, missForest, nonlinearTseries, stats,
+        graphics, utils, zoo, grDevices, rgl, mgcv, infotheo, plot3D
 Depends: R(>= 3.5.0)
 NeedsCompilation: no
 Repository: CRAN
-Packaged: 2020-06-07 20:05:43 UTC; rs
-Date/Publication: 2020-06-07 20:40:02 UTC
+Packaged: 2020-12-15 18:15:19 UTC; rs
+Date/Publication: 2020-12-15 19:30:06 UTC

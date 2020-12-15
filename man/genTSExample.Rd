@@ -30,14 +30,3 @@ The time series
 \author{
 Marina Saez Andreu
 }
-
-\examples{
-
-# Generate white noise and assign to the KTSEnv environment
-genTSExample(stationary = TRUE, name = "WN")
-graphics::plot(KTSEnv$WN, type = "l")
-
-# Generate random walk and not assign to the KTSEnv environment
-RW <- genTSExample(stationary = FALSE, InKTSEnv = FALSE)
-graphics::plot(RW, type = "l")
-}

@@ -77,36 +77,19 @@ function() {
                summLengthsSec = summLengthsSec)
         }
         getHist <- function(vertLines, selRmName, selMinLength) {
-          plothist <- function() {
-            
-            histResult <- graphics::hist(vertLines, 
-                                         breaks = seq(min(vertLines) - 0.5, 
-                                                      max(vertLines) + 0.5, 
-                                                      by = 1), 
-                                         freq = TRUE, plot = TRUE,
-                                         right = TRUE, col = "darkred", 
-                                         xlab = paste("Lengths (min=", 
-                                                      selMinLength, ")"), 
-                                         main = paste(selRmName, 
-                                                      "vertical lines length"))
-            
-          }
-          copyPlot <- function() {
-            tkrplot::tkrreplot(tsPlot)
-          }
-          panelName <- createRandName()
-          assign(panelName, tcltk::tktoplevel(bg = "white"))
-          tcltk::tkwm.title(get(panelName), "Histogram")
-          tsPlot <- tkrplot::tkrplot(get(panelName), fun = plothist, 
-                                     hscale = 1.5, 
-                                     vscale = 1.5)
-          copyButton <- tcltk::tkbutton(get(panelName), 
-                                        text = "Copy to clipboard", 
-                                        command = copyPlot)
-          tcltk::tkpack(tsPlot, expand = TRUE, fill = "both", 
-                        anchor = "center")
-          tcltk::tkconfigure(tsPlot, bg = "white")
-          tcltk::tkpack(copyButton, expand = TRUE, fill = "both")
+
+          grDevices::dev.new(noRStudioGD = TRUE)
+          histResult <- graphics::hist(vertLines, 
+                                       breaks = seq(min(vertLines) - 0.5, 
+                                                    max(vertLines) + 0.5, 
+                                                    by = 1), 
+                                       freq = TRUE, plot = TRUE,
+                                       right = TRUE, col = "darkred", 
+                                       xlab = paste("Lengths (min=", 
+                                                    selMinLength, ")"), 
+                                       main = paste(selRmName, 
+                                                    "vertical lines length"))
+          
         }
         writeLamResult <- function(LAM, ratioRqa, RR, selRmName, 
                                    selMinLength, 
@@ -144,23 +127,23 @@ function() {
                     paste("   Initial dates:", 
                           paste(selRm$tsIni, collapse = ",")))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                          paste(txt, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt01, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                          paste(txt01, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt1, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                          paste(txt1, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt2, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                          paste(txt2, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt3, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                          paste(txt3, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txt4, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                          paste(txt4, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
           endingLines()
         }
         vertLines <- apply(as.matrix(1:dimRecMat), 1, 

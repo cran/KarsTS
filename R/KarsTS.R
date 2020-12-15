@@ -1,6 +1,7 @@
 KarsTS <-
 function(skipWelcome = FALSE) {
   
+  # KTSEnv <- new.env(parent = emptyenv())
     # KTSEnv$activButton <- "hello"
     getScreenSize()
     assign("timeZone", "GMT", envir = KTSEnv)

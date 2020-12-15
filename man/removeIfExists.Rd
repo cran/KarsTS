@@ -24,13 +24,3 @@ The environment
 \author{
 Marina Saez Andreu
 }
-\examples{
-
-# Create a vector in the KTSEnv environment
-KTSEnv$ThisExists <- 1:30
-
-# It does not throw an error when the element to remove does not exist
-removeIfExists(c("ThisExists", "ThisDoesNot"), envir = KTSEnv)
-
-
-}

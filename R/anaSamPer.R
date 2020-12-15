@@ -66,15 +66,15 @@ function() {
       }
       txt <- utils::capture.output(print.data.frame(tabla))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", "SAMPLING PERIODS")
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", date())
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                       paste("Sampling period analysis for", 
-                            KTSEnv$selTsName, collapse = "\\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\\n"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                            KTSEnv$selTsName, collapse = "\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
       endingLines()
       cleanEnvir()
       showPANanaSP1()

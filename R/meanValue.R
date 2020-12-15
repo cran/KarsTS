@@ -229,8 +229,8 @@ function() {
                               paste(resMeVal$advances, collapse = ",")))
           writeMethodTitle("MEAN/MEDIAN VALUE")
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txtParam, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n")
+                          paste(txtParam, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
           writeMethodSummary(filledNasTable, remainingNAsInGap, selTsName, 
                              selGapName, selGap)
           endingLines()

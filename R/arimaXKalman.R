@@ -249,24 +249,24 @@ function() {
             txtPeriod <- paste("Period:", tsPeriod, "(lags)")
           }
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste(txtPeriod, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n")
+                          paste(txtPeriod, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
           txtParam <- paste("(", ARorder, degreeDiff, MAorder, 
                             ")x(", seasARorder, 
                             sDegreeDiff, seasMAorder, ")")
           txtModel <- paste("Model:", txtParam)
           tcltk::tkinsert(KTSEnv$txtWidget, "end", txtModel)
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n")
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
           txtReg <- paste("Regressor time series:", 
                           paste(regTsName, collapse = ","))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", txtReg)
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n")
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
         }
         if (all(is.na(KTSEnv$selTs$value) == FALSE)) {
           writeMethodTitle("ARIMAX MODEL WITH KALMAN FILTER")
           txtWarning <- "The time series had no NAs"
           tcltk::tkinsert(KTSEnv$txtWidget, "end", txtWarning)
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           writeAModelInfo(KTSEnv$tsPeriod, KTSEnv$ARorder, KTSEnv$degreeDiff, 
                           KTSEnv$MAorder, KTSEnv$seasARorder, 
                           KTSEnv$sDegreeDiff, KTSEnv$seasMAorder, 

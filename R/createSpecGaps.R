@@ -47,9 +47,9 @@ function() {
         txt2 <- paste("Set of gaps generated from the time series", selTsName)
         txt3 <- paste("Initial date", iniDateValue)
         txt4 <- paste("Final date", finDateValue)
-        txt <- c(txt1, date(), "\\n", txt2, txt3, txt4)
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+        txt <- c(txt1, date(), "\n", txt2, txt3, txt4)
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
         endingLines()
       }
       selTs <- get(KTSEnv$selTsName, envir = KTSEnv)

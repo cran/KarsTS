@@ -78,22 +78,22 @@ function() {
         assign(selNewName, MMN, KTSEnv)
         tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                         paste("NEW SET OF GAPS:", KTSEnv$selNewName, 
-                              collapse = "\\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                              collapse = "\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
         tcltk::tkinsert(KTSEnv$txtWidget, "end", date())
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
         tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                         paste("Original time series", KTSEnv$selTsName, 
-                              collapse = "\\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                              collapse = "\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
         tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                         paste("Selected:all of the gaps in the time series", 
-                              collapse = "\\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                              collapse = "\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
         tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                         paste("The gap set contains",length(allGaps), "NAs", 
-                              collapse = "\\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                              collapse = "\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
         endingLines()
         cleanEnvir()
         refreshDataSetsList(outp = FALSE)
@@ -210,31 +210,31 @@ function() {
           assign(selNewName, MMN, KTSEnv)
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                           paste("NEW SET OF GAPS:", selNewName, 
-                                collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                                collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", date())
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                           paste("Original time series:",KTSEnv$selTsName, 
-                                collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                                collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                           paste("The gap set contains", 
-                                length(totalGaps), "NAs", collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                                length(totalGaps), "NAs", collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste("Selected gaps:", collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                          paste("Selected gaps:", collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                          paste("   By length:", txt1, collapse = "\\n"))
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                          paste("   By length:", txt1, collapse = "\n"))
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
           if (is.null(txtSpeGapTable) == FALSE) {
             tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                            paste("   Specific gaps:", collapse = "\\n"))
-            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                            paste("   Specific gaps:", collapse = "\n"))
+            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
             tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                            paste(txtSpeGapTable, collapse = "\\n"))
-            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                            paste(txtSpeGapTable, collapse = "\n"))
+            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
           }
           endingLines()
         } else {
@@ -267,17 +267,17 @@ function() {
         rownames(tablahuecos) <- NULL
         txt <- utils::capture.output(print.data.frame(tablahuecos))
         tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                        "GAP SELECTION", collapse = "\\n")
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", date(), collapse = "\\n")
+                        "GAP SELECTION", collapse = "\n")
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", date(), collapse = "\n")
         tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("Gaps in", selTsName, 
-                                                       collapse = "\\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+                                                       collapse = "\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
         tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                         paste0("Check the indices corresponding ",
                                "to the gaps you want to select"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
         endingLines()
         assign("selTsName", selTsName, envir = KTSEnv)
         showPANselGap2()

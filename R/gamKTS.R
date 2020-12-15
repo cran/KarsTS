@@ -275,21 +275,21 @@ function() {
       writeMethodTitle("MULTIVARIATE SPLINE INTERPOLATION")
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                       "GAM model with tensor product smooth ")
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                       paste("Filled time series:", KTSEnv$selTsName))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                       paste("Predictor time series:", 
                             KTSEnv$predictorTS, collapse = ","))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("Regression:", fx))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("Smoothing basis:", bs))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
       tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("Window:", 100 * per, 
                                                      "% gap length"))
-      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+      tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
       writeMethodSummary(filledNasTable, remainingNAsInGap, KTSEnv$selTsName, 
                          selGapName, selGap)
       endingLines()

@@ -168,6 +168,11 @@ function() {
                              noValid = NA)
       
       
+      stinepack::na.stinterp(c(1,NA,3:10))
+      stinepack::stinemanSlopes(1:13,sin(1:13),scale=TRUE)
+      stinepack::parabolaSlopes(1:13,sin(1:13))
+      stinepack::stinterp(1:13,sin(1:13),3)
+      
       if (is.na(selTsName)) {
         tcltk::tkmessageBox(message = "Choose a time series", 
                             icon = "warning")
@@ -264,7 +269,7 @@ function() {
           }
           writeMethodTitle("STINEMANN'S INTERPOLATION")
           tcltk::tkinsert(KTSEnv$txtWidget, "end", txtPeri)
-          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\\n")
+          tcltk::tkinsert(KTSEnv$txtWidget, "end", "\n")
           writeMethodSummary(filledNasTable, remainingNAsInGap, 
                              selTsName, 
                              selGapName, selGap)

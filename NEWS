@@ -1,5 +1,13 @@
 Changes in new version
 
+Version KarsTS 2.4 (December 15, 2020)
+-------------------------------------------
+
+- Many functions have been adapted to the new version of R without any noticeable changes for the users.
+- The plots no longer use the package tkrplot, for this reason the GUI has changed slightly. 
+- The User's Guide has been adapted accordingly. 
+
+
 Version KarsTS 2.3 (June 7, 2020)
 -------------------------------------------
 
@@ -8,3 +16,5 @@ Version KarsTS 2.3 (June 7, 2020)
 - Now the user can choose the resolution that will be used when saving the plots to image files. 
 - The examples were edited. 
 - The button MCAR Little's test was removed
+
+

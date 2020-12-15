@@ -3,7 +3,7 @@ function() {
     #' @importFrom circular circular windrose
     #' @importFrom MVN mvn
     #' @importFrom graphics abline axis curve hist 
-    #' @importFrom graphics legend lines par plot points axTicks title
+    #' @importFrom graphics legend lines par plot points axTicks title identify locator
     #' @importFrom utils capture.output globalVariables read.table write.table
     #' @importFrom tcltk tklabel tkmessageBox tkwait.window tktext ttklabel
     #' @importFrom tcltk ttkframe tkscrollbar tkpack tkgrid tkgrid.configure
@@ -13,7 +13,6 @@ function() {
     #' @importFrom tcltk tkpager tkwinfo tk_choose.dir tkcheckbutton
     #' @importFrom tcltk tcl tkbutton tkwm.title tktoplevel tclVar
     #' @importFrom tcltk2 tk2entry tk2label
-    #' @importFrom tkrplot tkrplot tkrreplot
     #' @importFrom tseriesChaos embedd false.nearest mutual plot.false.nearest
     #' @importFrom stlplus stlplus
     #' @importFrom tseries adf.test kpss.test

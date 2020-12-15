@@ -60,20 +60,20 @@ function() {
             txt4 <- utils::capture.output(print.data.frame(loadResult))
             tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                             "PRINCIPAL COMPONENT ANALYSIS")
-            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
             tcltk::tkinsert(KTSEnv$txtWidget, "end", date())
-            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
             tcltk::tkinsert(KTSEnv$txtWidget, "end", 
                             "  Importance of the components")
-            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
             tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                            paste(txt2, collapse = "\\n"))
-            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                            paste(txt2, collapse = "\n"))
+            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
             tcltk::tkinsert(KTSEnv$txtWidget, "end", "  Loadings")
-            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n"))
+            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n"))
             tcltk::tkinsert(KTSEnv$txtWidget, "end", 
-                            paste(txt4, collapse = "\\n"))
-            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+                            paste(txt4, collapse = "\n"))
+            tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
             endingLines()
           }
           createCompoTs <- function(PCAresult, firstTs, 

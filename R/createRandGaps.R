@@ -37,8 +37,8 @@ function() {
                       as.character(lGaps), "were generated")
         txt6 <- paste("along with the corresponding time series")
         txt <- c(txt1, txt2, txt3, txt5, txt6)
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\\n"))
-        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\\n\\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste(txt, collapse = "\n"))
+        tcltk::tkinsert(KTSEnv$txtWidget, "end", paste("\n\n"))
         endingLines()
       }
       selTs <- get(selTsName, envir = KTSEnv)

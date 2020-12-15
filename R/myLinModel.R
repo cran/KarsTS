@@ -41,26 +41,11 @@ function(observed, predicted) {
                                     newdata = data.frame(observed = newO), 
                                     interval = "prediction", level = 0.95)
         
-        plotLinModel <- function() {
-            graphics::par(mfrow = c(2, 2))
-            graphics::plot(linModel)
-        }
-        copyPlot <- function() {
-            tkrplot::tkrreplot(lmPlot)
-        }
-        nameWin <- paste0("panel", sample(10000:99999, 1))
-        assign(nameWin, tcltk::tktoplevel(bg = "white"))
-        tcltk::tkwm.title(get(nameWin), "Linear fit")
-        lmPlot <- tkrplot::tkrplot(get(nameWin), fun = plotLinModel, 
-                                   hscale = 3, vscale = 1.5)
-        copyButton <- tcltk::tkbutton(get(nameWin), 
-                                      text = "Copy to clipboard", 
-                                      command = copyPlot)
-        tcltk::tkpack(lmPlot, expand = TRUE, fill = "both", 
-                      anchor = "center")
-        tcltk::tkconfigure(lmPlot, bg = "white")
-        tcltk::tkpack(copyButton, expand = TRUE, fill = "both")
-        
+      grDevices::dev.new(noRStudioGD = TRUE)
+      graphics::par(mfrow = c(2, 2))
+      graphics::plot(linModel)
+     
+
         plotOP <- function() {
           graphics::plot(observed, predicted, xlab = "Observed", 
                          ylab = "Predicted", 
@@ -95,21 +80,10 @@ function(observed, predicted) {
                                      "yellow", "orange","green"), 
                              ncol = 3, pch = 1)
         }
-        copyPlot <- function() {
-            tkrplot::tkrreplot(opPlot)
-        }
-        nameWin <- paste0("panel", sample(10000:99999, 1))
-        assign(nameWin, tcltk::tktoplevel(bg = "white"))
-        tcltk::tkwm.title(get(nameWin), "Observed vs predicted")
-        opPlot <- tkrplot::tkrplot(get(nameWin), fun = plotOP, 
-                                   hscale = 2, vscale = 1.2)
-        copyButton <- tcltk::tkbutton(get(nameWin), 
-                                      text = "Copy to clipboard", 
-                                      command = copyPlot)
-        tcltk::tkpack(opPlot, expand = TRUE, fill = "both", anchor = "center")
-        tcltk::tkconfigure(opPlot, bg = "white")
-        tcltk::tkpack(copyButton, expand = TRUE, fill = "both")
         
+        grDevices::dev.new(noRStudioGD = TRUE)
+        plotOP()
+
         goodnessFit
     }
 }

@@ -26,12 +26,3 @@ The environment
 \author{
 Marina Saez Andreu
 }
-
-\examples{
-
-assignMultiple(c("One", "Two", "Three"), list(1:10,2,3), envir = KTSEnv)
-KTSEnv$One
-KTSEnv$Two
-KTSEnv$Three
-
-}
