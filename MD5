@@ -1,6 +1,6 @@
-d9d88d5f1d14d82183f2224a140a31c7 *DESCRIPTION
+4e0012ec5839ef9442206356e4c425d4 *DESCRIPTION
 85f896640d8a0c15d7a0acdab4dff1c6 *NAMESPACE
-bcce80fa9c57ab9961721babe7e951d7 *NEWS
+06e56242d578fecc22c395a28b40a364 *NEWS
 4a6f2cbb47e93a0017af25da931a71ef *R/E1dAndE2d.R
 fa1fd3220b7b7ed00a340bd14e7c8d37 *R/KarsTS.R
 dc769980df238005823d28842ba53cee *R/NAs4Resamp.R
@@ -163,13 +163,13 @@ d17fceac2b4c4595cf7e9fb3231cd3a7 *R/verifyIntEntry.R
 556dca639846f7d79173dd43363b0981 *R/windRoseKTS.R
 502123e66aff93dd13f576218810ee31 *R/writeMethodSummary.R
 66a011d2456e0f0b88516a6d02e0a636 *R/writeMethodTitle.R
-8ab0c844ad6fb09c5f14884292270c14 *README
-b8ed5dc1b142d30ae94657b1cab4c27d *build/partial.rdb
+2798fce2a46d420e5ee03935a2b8b7d4 *README
+2edefd7047e7e81e9dd057b1264af4e0 *build/partial.rdb
 6e7cf7f04336fbc26072020aac356f11 *inst/extdata/AllGapsTs1GSExample.csv
 542c34e3447fd76d69c1a51305134c8d *inst/extdata/AllGapsTs1GSExample.txt
-d173d5e68ad62c1d355c6cef27953895 *inst/extdata/KarsTS-manual.pdf
+c4ac288ebc04f799917622b9a1195b57 *inst/extdata/KarsTS-manual.pdf
 7c28aa2708563309d86ac9bceed14cb1 *inst/extdata/KarsTSHelp.txt
-f03415b88ceefa1980db89eddaae3599 *inst/extdata/KarsTSUserGuide.pdf
+7da609a387a0b9f76e70c3b3b05e2c74 *inst/extdata/KarsTSUserGuide.pdf
 c28e3208dc78e670fa98256b307561cc *inst/extdata/RMExample.csv
 2f794ee43f8ad85bd2fd530253d88244 *inst/extdata/RMExample.txt
 9dc98c134c26692da332034894c0ed77 *inst/extdata/TSExamples.csv
